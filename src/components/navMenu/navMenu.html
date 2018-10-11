@@ -1,0 +1,31 @@
+<div id='navMenu'>
+  <el-menu :default-openeds="['1', '2']">
+    <router-link to="/products" exact>
+      <el-submenu index="1">
+        <template slot="title"><i class="el-icon-goods"></i>Products</template>
+          <el-submenu index='1'>
+            <template slot="title">Frozen</template>
+            <el-menu-item index="1-1">Meat</el-menu-item>
+            <el-menu-item index="1-2">Veg</el-menu-item>
+          </el-submenu>
+          <el-submenu index='1'>
+            <template slot="title">Dry</template>
+            <el-menu-item index="1-1">Thai</el-menu-item>
+            <el-menu-item index="1-2">Chinese</el-menu-item>
+          </el-submenu>
+      </el-submenu>
+    </router-link>
+
+    <router-link to="/orders" exact>
+      <el-menu-item index="2">
+        <template slot="title"><i class="el-icon-tickets"></i>Orders</template>
+      </el-menu-item>
+    </router-link>
+    
+    <router-link to="/clients" exact>
+      <el-menu-item index="3">
+        <template slot="title"><i class="el-icon-news"></i>Clients</template>
+      </el-menu-item>
+    </router-link>
+  </el-menu>
+</div>

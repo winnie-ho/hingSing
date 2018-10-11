@@ -1,0 +1,24 @@
+<div id='orders'>
+  <el-container>
+    <el-header height='100px'>
+      <h1>Hing Sing</h1>
+      <h4>Chinese Supermarket</h4>
+    </el-header>
+
+    <el-container>
+      <el-aside width='200px'>
+        <nav-menu></nav-menu>
+      </el-aside>
+      <el-main>
+        Orders
+
+      <div class='orders-list'>
+        <order-item v-for='order in orders' v-bind:key='order.index' v-bind:order='order'></order-item>
+      </div>
+
+
+      </el-main>
+    </el-container>
+
+  </el-container>
+</div>

@@ -1,0 +1,164 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: black;
+  min-height: 100vh;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.col-left{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: flex-start;
+}
+
+.sb{
+  justify-content: space-between;
+}
+
+.sa{
+  justify-content: space-around;
+}
+
+/* TEXT */
+h1, h2, h3, h4, h5, h6{
+  font-weight: 100;
+  margin: 5px;
+}
+
+.heading {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 2px;
+  white-space: nowrap;
+}
+
+.subheading {
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 2px;
+  color: white;
+}
+
+.date{
+  text-align: right;
+  font-size: 16px;
+}
+
+.data-metric{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  height: 35px;
+  max-width: auto;
+}
+
+.truncate {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* IMAGES */
+.icon{
+  height: 20px;
+  width: auto;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dark-icon {
+  filter: invert(60%);
+}
+
+.avatar{
+  height: 50px;
+  width: 50px;
+  border-radius: 10%;
+  margin: 10px;
+}
+
+.avatar-profile{
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+  margin: 10px;
+}
+
+/* BUTTONS */
+.hover:hover {
+  color: #3E9FDF;
+}
+
+.nav-icon {
+  width: auto;
+  height: 30px;
+  margin: 0 5px;
+  padding-top: 5px;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
+.back-button {
+  margin-top: 5px;
+  margin-left: 6px;
+}
+
+.button {
+  background-color: #AEECEF;
+  color: #3066BE;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.button--primary {
+  width: 100px;
+  background-color: #3066BE;
+  color: #AEECEF;
+  border: 1px solid #AEECEF;
+}
+
+.button--secondary {
+  width: 100px;
+  background-color: #AEECEF;
+  border: 1px solid #AEECEF;
+  color: #3066BE;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #3066BE;
+  background-color: #6D9DC5;
+  color: #3066BE;
+}
+
+/* responsive css  */
+@media all and (max-width: 700px) {
+  .heading, .date, .data-metric {
+    font-size: 12px;
+  }
+
+  table {
+    font-size: 11px;
+  }
+}
