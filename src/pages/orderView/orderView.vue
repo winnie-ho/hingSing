@@ -3,12 +3,14 @@
 
 <script>
 import navMenu from "../../components/navMenu/navMenu.vue";
+import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import { store } from '../../store/store.js'
 
 export default {
   name: "orderView",
   components: {
-    "nav-menu": navMenu
+    "nav-menu": navMenu,
+    "site-header": siteHeader
   },
   data() {
     return {

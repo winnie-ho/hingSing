@@ -1,45 +1,38 @@
 <div id='orderView'>
+  <site-header></site-header>
   <el-container>
-    <el-header height='100px'>
-      <h1>Hing Sing</h1>
-      <h4>Chinese Supermarket</h4>
-    </el-header>
+    <el-aside width='200px'>
+      <nav-menu></nav-menu>
+    </el-aside>
+    <el-main>
+      <h1>Order: {{ order.id }}</h1>
+      <h1>Date: {{ order.date }}</h1>
+      <h1>Client: {{ order.clientName }}</h1>
+      <h1>Number of items: {{ order.items.length }}</h1>
+      <h1>Total value: £{{ order.totalValue }}</h1>
+      <h1>Status: {{ order.status }}</h1>
 
-    <el-container>
-      <el-aside width='200px'>
-        <nav-menu></nav-menu>
-      </el-aside>
-      <el-main>
-        <h1>Order: {{ order.id }}</h1>
-        <h1>Date: {{ order.date }}</h1>
-        <h1>Client: {{ order.clientName }}</h1>
-        <h1>Number of items: {{ order.items.length }}</h1>
-        <h1>Total value: £{{ order.totalValue }}</h1>
-        <h1>Status: {{ order.status }}</h1>
-
-        <div class='order-items-list'>
-          <el-table :data="order.items" style="width: 100%">
-            <el-table-column
-              prop="productId"
-              label="Product ID"
-              width="100">
-            </el-table-column>
-            <el-table-column
-              prop="productName"
-              label="Product Name">
-            </el-table-column>
-            <el-table-column
-              prop="quantity"
-              label="Quantity">
-            </el-table-column>
-            <el-table-column
-              prop="price"
-              label="Price (£)">
-            </el-table-column>
-          </el-table>
-          </div>
-      </el-main>
-    </el-container>
-
+      <div class='order-items-list'>
+        <el-table :data="order.items" style="width: 100%">
+          <el-table-column
+            prop="productId"
+            label="Product ID"
+            width="100">
+          </el-table-column>
+          <el-table-column
+            prop="productName"
+            label="Product Name">
+          </el-table-column>
+          <el-table-column
+            prop="quantity"
+            label="Quantity">
+          </el-table-column>
+          <el-table-column
+            prop="price"
+            label="Price (£)">
+          </el-table-column>
+        </el-table>
+        </div>
+    </el-main>
   </el-container>
 </div>

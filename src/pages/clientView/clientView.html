@@ -1,24 +1,16 @@
 <div id='clientView'>
+  <site-header></site-header>
   <el-container>
-    <el-header height='100px'>
-      <h1>Hing Sing</h1>
-      <h4>Chinese Supermarket</h4>
-    </el-header>
+    <el-aside width='200px'>
+      <nav-menu></nav-menu>
+    </el-aside>
+    <el-main>
+      <h1>ID: {{ client.id }}</h1>
+      <h1>{{ client.name }}</h1>
+      <h1>{{ client.address }}</h1>
+      <h1>{{ client.postcode }}</h1>
+      <h1>{{ client.phone }}</h1>
 
-    <el-container>
-      <el-aside width='200px'>
-        <nav-menu></nav-menu>
-      </el-aside>
-      <el-main>
-        <h1>ID: {{ client.id }}</h1>
-        <h1>{{ client.name }}</h1>
-        <h1>{{ client.address }}</h1>
-        <h1>{{ client.postcode }}</h1>
-        <h1>{{ client.phone }}</h1>
-
-        
-      </el-main>
-    </el-container>
-
+    </el-main>
   </el-container>
 </div>

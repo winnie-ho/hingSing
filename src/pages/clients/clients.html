@@ -1,44 +1,38 @@
 <div id='clients'>
+  <site-header></site-header>
+
   <el-container>
-    <el-header height='100px'>
-      <h1>Hing Sing</h1>
-      <h4>Chinese Supermarket</h4>
-    </el-header>
-
-    <el-container>
-      <el-aside width='200px'>
-        <nav-menu></nav-menu>
-      </el-aside>
-      <el-main>
-        <h1>Clients</h1>
-        <div class='clients-list'>
-          <el-table :data="clients" style="width: 100%" @current-change="enterClientView">
-            <el-table-column
-              prop="id"
-              label="ID"
-              width="50">
-            </el-table-column>
-            <el-table-column
-              prop="name"
-              label="Name"
-              width="180">
-            </el-table-column>
-            <el-table-column
-              prop="address"
-              label="Address">
-            </el-table-column>
-            <el-table-column
-              prop="phone"
-              label="Phone">
-            </el-table-column>
-            <el-table-column
-              prop="email"
-              label="Email">
-            </el-table-column>
-          </el-table>
-        </div>
-      </el-main>
-    </el-container>
-
+    <el-aside width='200px'>
+      <nav-menu></nav-menu>
+    </el-aside>
+    <el-main>
+      <h1>Clients</h1>
+      <div class='clients-list'>
+        <el-table :data="clients" style="width: 100%" @current-change="enterClientView">
+          <el-table-column
+            prop="id"
+            label="ID"
+            width="50">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="Name"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="Address">
+          </el-table-column>
+          <el-table-column
+            prop="phone"
+            label="Phone">
+          </el-table-column>
+          <el-table-column
+            prop="email"
+            label="Email">
+          </el-table-column>
+        </el-table>
+      </div>
+    </el-main>
   </el-container>
 </div>
