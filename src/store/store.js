@@ -37,6 +37,11 @@ export const store = new Vuex.Store({
         }
         context.commit('setClients', clients)
       })
+    },
+    addClient: (context, client) => {
+      Vue.http.post('https://hing-sing.firebaseio.com/clients.json', client).then(function (data) {
+        return data.json()
+      })
     }
   }
 })

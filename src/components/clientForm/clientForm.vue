@@ -20,11 +20,14 @@
     },
     props: ['displayClientForm'],
     methods: {
-      onSubmit() {
-        console.log('submit!');
+      async onSubmit() {
+        await this.$store.dispatch('addClient', this.form);
+        this.clientFormVisible = false;
+        setTimeout(this.refreshClientsList, 500);
       },
-      closeClientForm(){
-        console.log('CLOSE')
+      async refreshClientsList(){
+        await this.$store.dispatch('fetchClients');
+        await this.$router.push('/clients/');
       }
     },
     computed: {
