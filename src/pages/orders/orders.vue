@@ -136,7 +136,7 @@ export default {
     },
     enterOrderView(e){
       this.$store.dispatch('setOrder', e)
-      this.$router.push('/orderView/' + e.clientId)
+      this.$router.push('/orderView/' + e.id)
     }
   },
   computed: {
