@@ -12,7 +12,32 @@ export default {
   },
   data() {
     return {
-      
+      clients: [
+        {
+          id: 1,
+          name: "New Lucky Home",
+          address: "1 Street",
+          postcode: "EH1 1HE",
+          phone: "0131 222 1111",
+          email: "email@email.com"
+        },
+        {
+          id: 2,
+          name: "New Dragon",
+          address: "1 Street",
+          postcode: "EH1 1HE",
+          phone: "0131 222 1111",
+          email: "email@email.com"
+        },
+        {
+          id: 3,
+          name: "Jade Garden",
+          address: "1 Street",
+          postcode: "EH1 1HE",
+          phone: "0131 222 1111",
+          email: "email@email.com"
+        }
+      ]
     };
   },
   mounted() {

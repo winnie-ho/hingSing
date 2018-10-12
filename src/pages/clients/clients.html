@@ -9,7 +9,35 @@
       <el-aside width='200px'>
         <nav-menu></nav-menu>
       </el-aside>
-      <el-main>Clients</el-main>
+      <el-main>
+        <h1>Clients</h1>
+        <div class='clients-list'>
+          <el-table :data="clients" style="width: 100%" :row-class-name="orderStatusClass">
+            <el-table-column
+              prop="id"
+              label="ID"
+              width="50">
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="Name"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              label="Address">
+            </el-table-column>
+            <el-table-column
+              prop="phone"
+              label="Phone">
+            </el-table-column>
+            <el-table-column
+              prop="email"
+              label="Email">
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-main>
     </el-container>
 
   </el-container>
