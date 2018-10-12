@@ -16,42 +16,10 @@ export default {
   },
   data() {
     return {
-      clients: [
-        {
-          id: 1,
-          name: "New Lucky Home",
-          address: "1 Street",
-          postcode: "EH1 1HE",
-          phone: "0131 222 1111",
-          email: "email@email.com",
-          lat: 55.966373,
-          lng: -3.2505574
-        },
-        {
-          id: 2,
-          name: "Golden Pond",
-          address: "1 Street",
-          postcode: "EH1 1HE",
-          phone: "0131 222 1111",
-          email: "email@email.com",
-          lat: 55.9577821,
-          lng: -3.2521764
-        },
-        {
-          id: 3,
-          name: "Jade Garden",
-          address: "1 Street",
-          postcode: "EH1 1HE",
-          phone: "0131 222 1111",
-          email: "email@email.com",
-          lat: 55.9623431,
-          lng: -3.1988374
-        }
-      ]
     };
   },
   mounted() {
-
+    this.$store.dispatch('fetchClients')
   },
   methods: {
     enterClientView(e){
@@ -60,7 +28,9 @@ export default {
     }
   },
   computed: {
-
+    clients(){
+      return this.$store.state.clients
+    }
   }
 };
 </script>

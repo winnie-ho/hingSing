@@ -8,9 +8,11 @@ Vue.use(VueResource)
 export const store = new Vuex.Store({
   state: {
     order: {},
-    client: {}
+    client: {},
+    clients: []
   },
   mutations: {
+    setClients: (state, payload) => (state.clients = payload),
     setOrder: (state, payload) => (state.order = payload),
     setClient: (state, payload) => (state.client = payload)
   },
@@ -23,18 +25,18 @@ export const store = new Vuex.Store({
     },
     setClient: (context, client) => {
       context.commit('setClient', client)
+    },
+    fetchClients: (context, clients) => {
+      Vue.http.get('https://hing-sing.firebaseio.com/clients.json').then(function (data) {
+        return data.json()
+      }).then(function (data) {
+        let clients = []
+        for (let key in data) {
+          data[key].id = key
+          clients.push(data[key])
+        }
+        context.commit('setClients', clients)
+      })
     }
-    // fetchOrders: (context, orders) => {
-    //   Vue.http.get('https://win-runs.firebaseio.com/orders.json').then(function (data) {
-    //     return data.json()
-    //   }).then(function (data) {
-    //     let orders = []
-    //     for (let key in data) {
-    //       data[key].id = key
-    //       orders.push(data[key])
-    //     }
-    //     context.commit('setOrders', orders)
-    //   })
-    // }
   }
 })
