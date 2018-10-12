@@ -8,7 +8,7 @@
     <el-main>
       <div class='row sb'>
         <h1>Clients</h1>
-        <client-form></client-form>
+        <client-form v-bind:showAddBtn='true'></client-form>
       </div>
       <h4>{{ clients.length }}</h4>
       <div class='clients-list'>

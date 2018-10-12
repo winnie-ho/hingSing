@@ -5,8 +5,14 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
+      <div class='row sb'>
+        <h1>{{ client.name }}</h1>
+        <div class='row'>
+          <client-form v-bind:showAddBtn='false'></client-form>
+          <edit-bar></edit-bar>
+        </div>
+      </div>
       <h4>ID: {{ client.id }}</h4>
-      <h1>{{ client.name }}</h1>
       <h3>{{ client.address }}</h3>
       <h3>{{ client.postcode }}</h3>
       <h3>{{ client.phone }}</h3>
