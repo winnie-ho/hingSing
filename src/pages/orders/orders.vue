@@ -16,21 +16,24 @@ export default {
         {
           id: 1,
           date: new Date().toLocaleString(),
-          clientId: 'Jade Garden',
+          clientId: 1,
+          clientName: 'Jade Garden',
           items: ['Beef', 'Chips'],
           totalValue: 120
         },
         {
           id: 2,
           date: new Date().toLocaleString(),
-          clientId: 'New Lucky Home',
+          clientId: 2,
+          clientName: 'New Lucky Home',
           items: ['Soya Sauce', 'Rice', 'Chicken', 'Tofu'],
           totalValue: 230
         },
         {
           id: 3,
           date: new Date().toLocaleString(),
-          clientId: 'Wee Buddha',
+          clientId: 3,
+          clientName: 'Wee Buddha',
           items: ['Soya Sauce', 'Rice', 'Chicken', 'Tofu', 'Curry', 'Garlic'],
           totalValue: 298
         }
@@ -48,6 +51,10 @@ export default {
         return 'complete-status';
       }
       return '';
+    },
+    enterOrderView(e){
+      this.$store.dispatch('setOrder', e)
+      this.$router.push('/orderView/' + e.clientId)
     }
   },
   computed: {

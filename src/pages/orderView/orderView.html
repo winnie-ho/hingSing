@@ -1,0 +1,22 @@
+<div id='orderView'>
+  <el-container>
+    <el-header height='100px'>
+      <h1>Hing Sing</h1>
+      <h4>Chinese Supermarket</h4>
+    </el-header>
+
+    <el-container>
+      <el-aside width='200px'>
+        <nav-menu></nav-menu>
+      </el-aside>
+      <el-main>
+        <h1>Order View</h1>
+        <h1>{{ order.id }}</h1>
+        <h1>{{ order.clientName }}</h1>
+        <h1>£{{ order.totalValue }}</h1>
+        
+      </el-main>
+    </el-container>
+
+  </el-container>
+</div>
