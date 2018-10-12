@@ -7,13 +7,14 @@
     
     <el-main>
       <h1>Orders</h1>
+      <order-form v-bind:showAddBtn='true'></order-form>
 
       <div class='orders-list'>
         <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView">
           <el-table-column
             prop="id"
             label="ID"
-            width="50">
+            width="100">
           </el-table-column>
           <el-table-column
             prop="date"

@@ -5,6 +5,7 @@
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import siteFooter from "../../components/siteFooter/siteFooter.vue";
+import orderForm from "../../components/orderForm/orderForm.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -12,122 +13,15 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
-    "site-footer": siteFooter
+    "site-footer": siteFooter,
+    "order-form": orderForm
   },
   data() {
     return {
-      orders: [
-        {
-          id: 1,
-          date: new Date().toLocaleString(),
-          clientId: 1,
-          clientName: 'Jade Garden',
-          status: 'open',
-          items: [
-            {
-              productId: 1203,
-              productName: "Beef",
-              quantity: 1,
-              price: 40
-            },
-            {
-              productId: 1103,
-              productName: "Chips",
-              quantity: 12,
-              price: 140
-            }
-          ],
-          totalValue: 1020
-        },
-        {
-          id: 2,
-          date: new Date().toLocaleString(),
-          clientId: 2,
-          clientName: 'New Lucky Home',
-          status: 'complete',
-          items: [
-            {
-              productId: 1203,
-              productName: "Beef",
-              quantity: 1,
-              price: 40
-            },
-            {
-              productId: 1103,
-              productName: "Chips",
-              quantity: 12,
-              price: 140
-            },
-            {
-              productId: 1101,
-              productName: "Tofu",
-              quantity: 1,
-              price: 2
-            }
-          ],
-          totalValue: 230
-        },
-        {
-          id: 3,
-          date: new Date().toLocaleString(),
-          clientId: 3,
-          clientName: 'Wee Buddha',
-          status: 'complete',
-          items: [
-            {
-              productId: 1203,
-              productName: "Beef",
-              quantity: 1,
-              price: 40
-            },
-            {
-              productId: 1103,
-              productName: "Chips",
-              quantity: 12,
-              price: 140
-            },
-            {
-              productId: 11203,
-              productName: "Garlic",
-              quantity: 11,
-              price: 14
-            }
-          ],
-          totalValue: 298
-        },
-        {
-          id: 4,
-          date: new Date().toLocaleString(),
-          clientId: 4,
-          clientName: 'Imperial Palace',
-          status: 'open',
-          items: [
-            {
-              productId: 1203,
-              productName: "Beef",
-              quantity: 1,
-              price: 40
-            },
-            {
-              productId: 1103,
-              productName: "Chips",
-              quantity: 12,
-              price: 140
-            },
-            {
-              productId: 11203,
-              productName: "Garlic",
-              quantity: 11,
-              price: 14
-            }
-          ],
-          totalValue: 298
-        }
-      ]
     };
   },
   mounted() {
-
+    this.$store.dispatch('fetchOrders');
   },
   methods: {
     orderStatusClass({row, rowIndex}) {
@@ -144,7 +38,9 @@ export default {
     }
   },
   computed: {
-
+    orders(){
+      return this.$store.state.orders;
+    }
   }
 };
 </script>

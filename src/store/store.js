@@ -9,10 +9,12 @@ export const store = new Vuex.Store({
   state: {
     order: {},
     client: {},
-    clients: []
+    clients: [],
+    orders: []
   },
   mutations: {
     setClients: (state, payload) => (state.clients = payload),
+    setOrders: (state, payload) => (state.orders = payload),
     setOrder: (state, payload) => (state.order = payload),
     setClient: (state, payload) => (state.client = payload)
   },
@@ -26,7 +28,29 @@ export const store = new Vuex.Store({
     setClient: (context, client) => {
       context.commit('setClient', client)
     },
-    fetchClients: (context, clients) => {
+    fetchOrders: (context) => {
+      Vue.http.get('https://hing-sing.firebaseio.com/orders.json').then(function (data) {
+        return data.json()
+      }).then(function (data) {
+        let orders = []
+        for (let key in data) {
+          data[key].id = key
+          orders.push(data[key])
+        }
+        context.commit('setOrders', orders)
+      })
+    },
+    addOrder: (context, order) => {
+      Vue.http.post('https://hing-sing.firebaseio.com/orders.json', order).then(function (data) {
+        return data.json()
+      })
+    },
+    deleteOrder: (context, order) => {
+      Vue.http.delete('https://hing-sing.firebaseio.com/orders/' + order.id + '.json', order).then(function (data) {
+        return data.json()
+      })
+    },
+    fetchClients: (context) => {
       Vue.http.get('https://hing-sing.firebaseio.com/clients.json').then(function (data) {
         return data.json()
       }).then(function (data) {
