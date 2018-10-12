@@ -15,10 +15,10 @@
           lat: '',
           lng: '',
         },
-        clientFormVisible: false
+        clientFormVisible: false,
       }
     },
-    props: ['displayClientForm'],
+    props: ['displayClientForm', 'showAddBtn'],
     methods: {
       async onSubmit() {
         await this.$store.dispatch('addClient', this.form);

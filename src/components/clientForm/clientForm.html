@@ -1,5 +1,5 @@
 <div id='clientForm'>
-  <el-button type='primary' v-on:click='clientFormVisible=true'>Add Client</el-button>
+  <el-button type='primary' v-on:click='clientFormVisible=true' v-show='showAddBtn'>Add Client</el-button>
   <el-dialog title="Add New Client" :visible.sync="clientFormVisible" width="90%">
     <el-form ref="form" :model="form" label-width="90px">
       <el-form-item label="Name">
