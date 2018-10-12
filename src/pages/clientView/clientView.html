@@ -5,12 +5,18 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <h1>ID: {{ client.id }}</h1>
+      <h4>ID: {{ client.id }}</h4>
       <h1>{{ client.name }}</h1>
-      <h1>{{ client.address }}</h1>
-      <h1>{{ client.postcode }}</h1>
-      <h1>{{ client.phone }}</h1>
+      <h3>{{ client.address }}</h3>
+      <h3>{{ client.postcode }}</h3>
+      <h3>{{ client.phone }}</h3>
 
+      <google-map 
+        name='view-activity'
+        v-bind:lat='client.lat'
+        v-bind:lng='client.lng'
+        v-bind:name='client.name'>
+      </google-map>
     </el-main>
   </el-container>
 </div>

@@ -1,0 +1,9 @@
+gmap-map {
+  margin: 0 auto;
+  color: yellowgreen;
+}
+
+#map {
+  height: 300px;
+  position: relative;
+}
