@@ -12,7 +12,7 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
-    "site-footer": siteFooter
+    "site-footer": siteFooter,
   },
   data() {
     return {
@@ -25,6 +25,9 @@ export default {
     enterClientView(e){
       this.$store.dispatch('setClient', e)
       this.$router.push('/clientView/' + e.id)
+    },
+    addClient(){
+      console.log('NEW CLIENT');
     }
   },
   computed: {

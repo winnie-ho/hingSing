@@ -6,7 +6,10 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <h1>Clients</h1>
+      <div class='row sb'>
+        <h1>Clients</h1>
+        <el-button type='primary' v-on:click='addClient'>Add Client</el-button>
+      </div>
       <div class='clients-list'>
         <el-table :data="clients" style="width: 100%" @current-change="enterClientView">
           <el-table-column
