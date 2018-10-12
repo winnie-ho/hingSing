@@ -10,11 +10,34 @@
         <nav-menu></nav-menu>
       </el-aside>
       <el-main>
-        <h1>Order View</h1>
-        <h1>{{ order.id }}</h1>
-        <h1>{{ order.clientName }}</h1>
-        <h1>£{{ order.totalValue }}</h1>
-        
+        <h1>Order: {{ order.id }}</h1>
+        <h1>Date: {{ order.date }}</h1>
+        <h1>Client: {{ order.clientName }}</h1>
+        <h1>Number of items: {{ order.items.length }}</h1>
+        <h1>Total value: £{{ order.totalValue }}</h1>
+        <h1>Status: {{ order.status }}</h1>
+
+        <div class='order-items-list'>
+          <el-table :data="order.items" style="width: 100%">
+            <el-table-column
+              prop="productId"
+              label="Product ID"
+              width="100">
+            </el-table-column>
+            <el-table-column
+              prop="productName"
+              label="Product Name">
+            </el-table-column>
+            <el-table-column
+              prop="quantity"
+              label="Quantity">
+            </el-table-column>
+            <el-table-column
+              prop="price"
+              label="Price (£)">
+            </el-table-column>
+          </el-table>
+          </div>
       </el-main>
     </el-container>
 

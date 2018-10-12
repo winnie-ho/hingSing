@@ -18,15 +18,49 @@ export default {
           date: new Date().toLocaleString(),
           clientId: 1,
           clientName: 'Jade Garden',
-          items: ['Beef', 'Chips'],
-          totalValue: 120
+          status: 'open',
+          items: [
+            {
+              productId: 1203,
+              productName: "Beef",
+              quantity: 1,
+              price: 40
+            },
+            {
+              productId: 1103,
+              productName: "Chips",
+              quantity: 12,
+              price: 140
+            }
+          ],
+          totalValue: 1020
         },
         {
           id: 2,
           date: new Date().toLocaleString(),
           clientId: 2,
           clientName: 'New Lucky Home',
-          items: ['Soya Sauce', 'Rice', 'Chicken', 'Tofu'],
+          status: 'complete',
+          items: [
+            {
+              productId: 1203,
+              productName: "Beef",
+              quantity: 1,
+              price: 40
+            },
+            {
+              productId: 1103,
+              productName: "Chips",
+              quantity: 12,
+              price: 140
+            },
+            {
+              productId: 1101,
+              productName: "Tofu",
+              quantity: 1,
+              price: 2
+            }
+          ],
           totalValue: 230
         },
         {
@@ -34,7 +68,55 @@ export default {
           date: new Date().toLocaleString(),
           clientId: 3,
           clientName: 'Wee Buddha',
-          items: ['Soya Sauce', 'Rice', 'Chicken', 'Tofu', 'Curry', 'Garlic'],
+          status: 'complete',
+          items: [
+            {
+              productId: 1203,
+              productName: "Beef",
+              quantity: 1,
+              price: 40
+            },
+            {
+              productId: 1103,
+              productName: "Chips",
+              quantity: 12,
+              price: 140
+            },
+            {
+              productId: 11203,
+              productName: "Garlic",
+              quantity: 11,
+              price: 14
+            }
+          ],
+          totalValue: 298
+        },
+        {
+          id: 4,
+          date: new Date().toLocaleString(),
+          clientId: 4,
+          clientName: 'Imperial Palace',
+          status: 'open',
+          items: [
+            {
+              productId: 1203,
+              productName: "Beef",
+              quantity: 1,
+              price: 40
+            },
+            {
+              productId: 1103,
+              productName: "Chips",
+              quantity: 12,
+              price: 140
+            },
+            {
+              productId: 11203,
+              productName: "Garlic",
+              quantity: 11,
+              price: 14
+            }
+          ],
           totalValue: 298
         }
       ]
@@ -45,9 +127,9 @@ export default {
   },
   methods: {
     orderStatusClass({row, rowIndex}) {
-      if (rowIndex === 0) {
+      if (row.status === 'open') {
         return 'open-status';
-      } else if (rowIndex === 1) {
+      } else if (row.status === 'complete') {
         return 'complete-status';
       }
       return '';
