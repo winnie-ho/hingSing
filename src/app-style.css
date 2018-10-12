@@ -152,6 +152,10 @@ button[disabled]{
   color: #3066BE;
 }
 
+a{
+  text-decoration: none;
+}
+
 /* TABLE STATUS COLOURS */
 .el-table .open-status {
   background-color: #c7fdc6;
