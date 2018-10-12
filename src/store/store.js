@@ -42,6 +42,11 @@ export const store = new Vuex.Store({
       Vue.http.post('https://hing-sing.firebaseio.com/clients.json', client).then(function (data) {
         return data.json()
       })
+    },
+    deleteClient: (context, client) => {
+      Vue.http.delete('https://hing-sing.firebaseio.com/clients/' + client.id + '.json', client).then(function (data) {
+        return data.json()
+      })
     }
   }
 })

@@ -9,10 +9,19 @@
         
       }
     },
-    props: {
-
-    },
+    props: [ 'client' ],
     methods: {
+      editClient(){
+        console.log('edit client', this.client);
+      },
+      deleteClient(){
+        this.$store.dispatch('deleteClient', this.client)
+        setTimeout(this.refreshClientsList, 500);
+      },
+      async refreshClientsList(){
+        await this.$store.dispatch('fetchClients');
+        await this.$router.push('/clients/');
+      }
     },
     computed: {
     }
