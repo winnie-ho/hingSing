@@ -8,7 +8,7 @@
     <el-main>
       <div class='row sb'>
         <h1>Clients</h1>
-        <el-button type='primary' v-on:click='addClient'>Add Client</el-button>
+        <client-form></client-form>
       </div>
       <div class='clients-list'>
         <el-table :data="clients" style="width: 100%" @current-change="enterClientView">

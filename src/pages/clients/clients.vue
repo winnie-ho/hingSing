@@ -5,6 +5,7 @@
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import siteFooter from "../../components/siteFooter/siteFooter.vue";
+import clientForm from "../../components/clientForm/clientForm.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -13,6 +14,7 @@ export default {
     "nav-menu": navMenu,
     "site-header": siteHeader,
     "site-footer": siteFooter,
+    "client-form": clientForm
   },
   data() {
     return {
@@ -25,9 +27,6 @@ export default {
     enterClientView(e){
       this.$store.dispatch('setClient', e)
       this.$router.push('/clientView/' + e.id)
-    },
-    addClient(){
-      console.log('NEW CLIENT');
     }
   },
   computed: {
