@@ -7,10 +7,12 @@ Vue.use(VueResource)
 
 export const store = new Vuex.Store({
   state: {
-    order: {}
+    order: {},
+    client: {}
   },
   mutations: {
-    setOrder: (state, payload) => (state.order = payload)
+    setOrder: (state, payload) => (state.order = payload),
+    setClient: (state, payload) => (state.client = payload)
   },
   getters: {
 
@@ -18,6 +20,9 @@ export const store = new Vuex.Store({
   actions: {
     setOrder: (context, order) => {
       context.commit('setOrder', order)
+    },
+    setClient: (context, client) => {
+      context.commit('setClient', client)
     }
     // fetchOrders: (context, orders) => {
     //   Vue.http.get('https://win-runs.firebaseio.com/orders.json').then(function (data) {

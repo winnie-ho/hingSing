@@ -12,7 +12,7 @@
       <el-main>
         <h1>Clients</h1>
         <div class='clients-list'>
-          <el-table :data="clients" style="width: 100%">
+          <el-table :data="clients" style="width: 100%" @current-change="enterClientView">
             <el-table-column
               prop="id"
               label="ID"

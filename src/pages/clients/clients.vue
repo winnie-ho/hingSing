@@ -44,7 +44,10 @@ export default {
 
   },
   methods: {
-    
+    enterClientView(e){
+      this.$store.dispatch('setClient', e)
+      this.$router.push('/clientView/' + e.clientId)
+    }
   },
   computed: {
 

@@ -5,6 +5,7 @@ import products from '../pages/products/products.vue'
 import orders from '../pages/orders/orders.vue'
 import orderView from '../pages/orderView/orderView.vue'
 import clients from '../pages/clients/clients.vue'
+import clientView from '../pages/clientView/clientView.vue'
 
 Vue.use(Router)
 
@@ -14,6 +15,7 @@ export default new Router({
     { path: '/products', component: products },
     { path: '/orders', component: orders },
     { path: '/orderView/:id', component: orderView },
-    { path: '/clients', component: clients }
+    { path: '/clients', component: clients },
+    { path: '/clientView/:id', component: clientView }
   ]
 })
