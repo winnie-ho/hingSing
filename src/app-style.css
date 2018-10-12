@@ -152,6 +152,18 @@ button[disabled]{
   color: #3066BE;
 }
 
+/* TABLE STATUS COLOURS */
+.el-table .open-status {
+  background-color: #c7fdc6;
+}
+
+.el-table .complete-status {
+  background-color: #e8e8e8;
+}
+
+
+
+
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric {
