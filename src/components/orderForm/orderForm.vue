@@ -22,7 +22,11 @@
     props: [ 'showAddBtn' ],
     methods: {
       addOrder() {
-        this.$store.dispatch('addOrder', this.form);
+        const orderToAdd = Object.assign({}, this.form, {
+          date: new Date().toLocaleString(),
+          totalValue: this.calculateTotalValue(this.form.items)
+        });
+        this.$store.dispatch('addOrder', orderToAdd);
         this.orderFormVisible = false;
         setTimeout(this.refreshOrdersList, 500);
       },
@@ -36,7 +40,9 @@
       },
       updateOrder(){
         const updatedOrder = Object.assign({}, this.form, {
-          id: this.order.id
+          id: this.order.id,
+          date: new Date().toLocaleString(),
+          totalValue: this.calculateTotalValue(this.form.items)
         });
         this.$store.dispatch('updateOrder', updatedOrder);
         setTimeout(this.refreshOrdersList, 500);
@@ -68,6 +74,10 @@
       },
       getProduct(productId){
         return this.products.find(product => product.id === productId);
+      },
+      calculateTotalValue(items){
+        console.log('items', items)
+        return items.reduce((totalCost, item) => totalCost + parseFloat(item.price), 0);
       }
     },
     computed: {
