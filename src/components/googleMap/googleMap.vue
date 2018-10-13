@@ -14,8 +14,9 @@
       }
     },
     mounted() {
+      if (!this.lat && !this.lng) return;
       const mapContainer = document.getElementById('map')
-      let options = {
+      const options = {
         zoom: 15,
         center: new google.maps.LatLng(this.center)
       }

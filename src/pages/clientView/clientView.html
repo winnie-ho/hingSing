@@ -16,7 +16,8 @@
       <h3>{{ client.postcode }}</h3>
       <h3>{{ client.phone }}</h3>
 
-      <google-map 
+      <google-map
+        v-show='client.lat && client.lng' 
         name='view-activity'
         v-bind:lat='client.lat'
         v-bind:lng='client.lng'
