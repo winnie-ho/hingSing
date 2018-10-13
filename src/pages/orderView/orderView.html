@@ -13,7 +13,8 @@
       </div>
       <h1>{{ order.client }}</h1>
       <h4>Updated: {{ order.date }}</h4>
-      <h4>Number of items: {{ order.items.length }}</h4>
+      <h4>Delivery date: {{ order.deliveryDate }}</h4>
+      <h4>Number of items: {{ numOfItems }}</h4>
       <h4>Total value: £{{ order.totalValue }}</h4>
 
       <el-tag v-bind:type='type'>{{ order.status }}</el-tag>

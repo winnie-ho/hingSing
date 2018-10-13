@@ -9,14 +9,20 @@
         form: {
           client: '',
           status: 'open',
-          items: []
+          items: [],
+          deliveryDate: ''
         },
         itemToAdd: {
           id: '',
           quantity: 1
         },
         orderFormVisible: false,
-        productSelectVisible: false
+        productSelectVisible: false,
+        pickerOptions: {
+          disabledDate(time) {
+            return time.getTime() < Date.now();
+          }
+        }
       }
     },
     props: [ 'showAddBtn' ],
@@ -24,6 +30,7 @@
       addOrder() {
         const orderToAdd = Object.assign({}, this.form, {
           date: new Date().toLocaleString(),
+          deliveryDate: new Date(this.form.deliveryDate).toLocaleDateString(),
           totalValue: this.calculateTotalValue(this.form.items)
         });
         this.$store.dispatch('addOrder', orderToAdd);
@@ -34,7 +41,8 @@
         this.form = {
           client: this.order.client,
           status: this.order.status,
-          items: this.order.items
+          items: this.order.items,
+          deliveryDate: this.order.deliveryDate
         }
         this.orderFormVisible = true;
       },
@@ -42,6 +50,7 @@
         const updatedOrder = Object.assign({}, this.form, {
           id: this.order.id,
           date: new Date().toLocaleString(),
+          deliveryDate: new Date(this.form.deliveryDate).toLocaleDateString(),
           totalValue: this.calculateTotalValue(this.form.items)
         });
         this.$store.dispatch('updateOrder', updatedOrder);

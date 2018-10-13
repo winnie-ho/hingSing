@@ -41,6 +41,10 @@ export default {
         default:
           return '';
       }
+    },
+    numOfItems() {
+      if (!this.order.items) return 0;
+      return this.order.items.length;
     }
   }
 };

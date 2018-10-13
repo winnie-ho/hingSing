@@ -3,7 +3,8 @@
   padding: 10px;
   bottom: 0px;
   width: 100vw;
-  background-color: #FF9B0E;
+  border-top: #FF9B0E 1px solid;
+  background-color: white;
   z-index: 1;
 }
 
