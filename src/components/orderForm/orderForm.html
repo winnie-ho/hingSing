@@ -67,7 +67,7 @@
         <el-select v-model="itemToAdd.name" placeholder="Select product">
           <el-option v-for='product in products' v-bind:key=product.name v-bind:label="product.name + ' - ' + product.unit" v-bind:value='product.name'></el-option>
         </el-select>
-        <el-input-number v-model="itemToAdd.quantity" @change="handleChange" :min='1' clearable ></el-input-number>
+        <el-input-number v-model="itemToAdd.quantity" @change="handleChange" min='1' clearable ></el-input-number>
           <el-button type="primary" v-on:click="productSelectVisible=true">Add</el-button>
           <el-button v-on:click="productSelectVisible=false">Cancel</el-button>
       </el-form-item>
