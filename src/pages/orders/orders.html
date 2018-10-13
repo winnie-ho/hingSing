@@ -16,16 +16,12 @@
 
 
       <div class='orders-list'>
-        <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView">
-          <el-table-column
-            prop="id"
-            label="ID"
-            width="200">
-          </el-table-column>
+        <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView" :default-sort = "{prop: 'date', order: 'descending'}">
           <el-table-column
             prop="date"
             label="Date"
-            width="180">
+            width="180"
+            sortable>
           </el-table-column>
           <el-table-column
             prop="client"
@@ -33,15 +29,18 @@
           </el-table-column>
           <el-table-column
             prop="items.length"
-            label="Size">
+            label="Size"
+            sortable>
           </el-table-column>
           <el-table-column
             prop="totalValue"
-            label="Value (£)">
+            label="Value (£)"
+            sortable>
           </el-table-column>
           <el-table-column
             prop="deliveryDate"
-            label="Delivery Date">
+            label="Delivery Date"
+            sortable>
           </el-table-column>
         </el-table>
       </div>
