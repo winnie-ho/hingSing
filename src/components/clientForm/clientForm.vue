@@ -9,6 +9,7 @@
         form: {
           name: '',
           address: '',
+          city: '',
           postcode: '',
           phone: '',
           email: '',
@@ -32,6 +33,7 @@
         this.form = {
           name: this.client.name,
           address: this.client.address,
+          city: this.client.city,
           postcode: this.client.postcode,
           phone: this.client.phone,
           email: this.client.email,
