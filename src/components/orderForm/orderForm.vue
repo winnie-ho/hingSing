@@ -7,15 +7,10 @@
     data () {
       return {
         form: {
-          name: '',
-          address: '',
-          postcode: '',
-          phone: '',
-          email: '',
-          lat: '',
-          lng: '',
+          client: '',
+          status: 'open'
         },
-        orderFormVisible: false,
+        orderFormVisible: false
       }
     },
     props: [ 'showAddBtn' ],
@@ -27,21 +22,14 @@
       },
       editOrderForm(){
         this.form = {
-          name: this.order.name,
-          address: this.order.address,
-          postcode: this.order.postcode,
-          phone: this.order.phone,
-          email: this.order.email,
-          lat: parseFloat(this.order.lat),
-          lng: parseFloat(this.order.lng)
+          client: this.order.client,
+          status: this.order.status
         }
         this.orderFormVisible = true;
       },
       updateOrder(){
         const updatedOrder = Object.assign({}, this.form, {
-          id: this.order.id,
-          lat: parseFloat(this.form.lat),
-          lng: parseFloat(this.form.lng)
+          id: this.order.id
         });
         this.$store.dispatch('updateOrder', updatedOrder);
         setTimeout(this.refreshOrdersList, 500);
@@ -53,11 +41,20 @@
       async refreshOrdersList(){
         await this.$store.dispatch('fetchOrders');
         await this.$router.push('/orders/');
+      },
+      deleteItem(index, rows) {
+        rows.splice(index, 1);
       }
     },
     computed: {
       order(){
         return this.$store.state.order;
+      },
+      clients(){
+        return this.$store.state.clients;
+      },
+      formTitle(){
+        return this.showAddBtn ? "Add new order" : "Update order";
       }
     }
   }

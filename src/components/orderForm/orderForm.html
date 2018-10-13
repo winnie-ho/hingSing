@@ -5,33 +5,66 @@
       <el-button type="primary" icon="el-icon-delete" v-on:click='deleteOrder'></el-button>
     </el-button-group>
 
-  <el-dialog title="New Order" :visible.sync="orderFormVisible" width="90%">
-    <el-form ref="form" :model="form" label-width="90px">
-      <el-form-item label="Name">
-        <el-input v-model="form.name"></el-input>
+  <el-dialog v-bind:title="formTitle" :visible.sync="orderFormVisible" width="90%">
+    <el-form ref="form" :model="form">
+      <el-form-item>
+        <el-select v-model="form.status" placeholder="Order Status">
+          <el-option label="Open" value="open" selected></el-option>
+          <el-option label="Complete" value="complete"></el-option>
+        </el-select>
       </el-form-item>
-      <el-form-item label="Address">
-        <el-input v-model="form.address"></el-input>
+      <el-form-item>
+        <el-select v-model="form.client" placeholder="Client">
+          <el-option v-for='client in clients' v-bind:key=client.value v-bind:label='client.name' v-bind:value='client.value'></el-option>
+        </el-select>
       </el-form-item>
-      <el-form-item label="Postcode">
-        <el-input v-model="form.postcode"></el-input>
-      </el-form-item>
-      <el-form-item label="Phone">
-        <el-input v-model="form.phone"></el-input>
-      </el-form-item>
-      <el-form-item label="Email">
-        <el-input v-model="form.email"></el-input>
-      </el-form-item>
-      <el-form-item label="Lat">
-        <el-input v-model="form.lat" type='number'></el-input>
-      </el-form-item>
-      <el-form-item label="Lng">
-        <el-input v-model="form.lng" type='number'></el-input>
-      </el-form-item>
-        <el-button type="primary" v-on:click="addOrder">Order</el-button>
+
+      <el-table :data="order.items" style="width: 100%">
+        <el-table-column
+          fixed
+          prop="productId"
+          label="Product ID"
+          width="150">
+        </el-table-column>
+        <el-table-column
+          prop="productName"
+          label="Product"
+          width="200">
+        </el-table-column>
+        <el-table-column
+          prop="quantity"
+          label="Quantity"
+          width="120">
+        </el-table-column>
+        <el-table-column
+          prop="unit"
+          label="Unit"
+          width="120">
+        </el-table-column>
+        <el-table-column
+          prop="unitPrice"
+          label="Unit Price"
+          width="120">
+        </el-table-column>
+        <el-table-column
+          prop="price"
+          label="Price"
+          width="120">
+        </el-table-column>
+        <el-table-column
+          fixed="right"
+          width="120">
+          <template slot-scope="scope">
+            <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" type="text" size="small">Remove</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+
+      <el-form-item >
+        <el-button type="primary" v-on:click="addOrder" v-show='showAddBtn'>Order</el-button>
         <el-button type="primary" v-on:click="updateOrder" v-show='!showAddBtn'>Update</el-button>
-        <el-button 
-        v-on:click='orderFormVisible=false'>Cancel</el-button>
+        <el-button v-on:click='orderFormVisible=false'>Cancel</el-button>
       </el-form-item>
     </el-form>
   </el-dialog>
