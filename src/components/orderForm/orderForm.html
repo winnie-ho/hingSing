@@ -1,6 +1,7 @@
 <div id='orderForm'>
     <el-button type='primary' icon='el-icon-plus' v-on:click='orderFormVisible=true' v-show='showAddBtn'>New Order</el-button>
     <el-button-group v-show='!showAddBtn'>
+      <el-button type="primary" icon="el-icon-printer" v-on:click='printOrderForm'></el-button>
       <el-button type="primary" icon="el-icon-edit" v-on:click='editOrderForm'></el-button>
       <el-button type="primary" icon="el-icon-delete" v-on:click='deleteOrder'></el-button>
     </el-button-group>
