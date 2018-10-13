@@ -48,7 +48,7 @@ export const store = new Vuex.Store({
       })
     },
     deleteOrder: (context, order) => {
-      Vue.http.delete('https://hing-sing.firebaseio.com/orders/' + order.id + '.json', order).then(function (data) {
+      Vue.http.delete('https://hing-sing.firebaseio.com/orders/' + order.id + '.json').then(function (data) {
         return data.json()
       })
     },
@@ -75,7 +75,7 @@ export const store = new Vuex.Store({
       })
     },
     deleteClient: (context, client) => {
-      Vue.http.delete('https://hing-sing.firebaseio.com/clients/' + client.id + '.json', client).then(function (data) {
+      Vue.http.delete('https://hing-sing.firebaseio.com/clients/' + client.id + '.json').then(function (data) {
         return data.json()
       })
     },

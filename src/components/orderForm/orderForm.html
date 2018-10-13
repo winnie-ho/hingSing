@@ -7,12 +7,14 @@
 
   <el-dialog v-bind:title="formTitle" :visible.sync="orderFormVisible" width="90%">
     <el-form ref="form" :model="form">
+      
       <el-form-item>
         <el-select v-model="form.status" placeholder="Order Status">
           <el-option label="Open" value="open" selected></el-option>
           <el-option label="Complete" value="complete"></el-option>
         </el-select>
       </el-form-item>
+
       <el-form-item>
         <el-select v-model="form.client" placeholder="Client">
           <el-option v-for='client in clients' v-bind:key=client.name v-bind:label='client.name' v-bind:value='client.name'></el-option>

@@ -76,7 +76,6 @@
         return this.products.find(product => product.id === productId);
       },
       calculateTotalValue(items){
-        console.log('items', items)
         return items.reduce((totalCost, item) => totalCost + parseFloat(item.price), 0);
       }
     },
