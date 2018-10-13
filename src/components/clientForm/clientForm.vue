@@ -18,11 +18,34 @@
         clientFormVisible: false,
       }
     },
-    props: ['displayClientForm', 'showAddBtn'],
+    props: [ 'showAddBtn' ],
     methods: {
-      async onSubmit() {
-        await this.$store.dispatch('addClient', this.form);
+      addClient() {
+        this.$store.dispatch('addClient', this.form);
         this.clientFormVisible = false;
+        setTimeout(this.refreshClientsList, 500);
+      },
+      editClientForm(){
+        this.form = {
+          name: this.client.name,
+          address: this.client.address,
+          postcode: this.client.postcode,
+          phone: this.client.phone,
+          email: this.client.email,
+          lat: this.client.lat,
+          lng: this.client.lng
+        }
+        this.clientFormVisible = true;
+      },
+      updateClient(){
+        const updatedClient = Object.assign({}, this.form, {
+          id: this.client.id
+        });
+        this.$store.dispatch('updateClient', updatedClient);
+        setTimeout(this.refreshClientsList, 500);
+      },
+      deleteClient(){
+        this.$store.dispatch('deleteClient', this.client);
         setTimeout(this.refreshClientsList, 500);
       },
       async refreshClientsList(){
@@ -31,6 +54,9 @@
       }
     },
     computed: {
+      client(){
+        return this.$store.state.client;
+      }
     }
   }
 </script>

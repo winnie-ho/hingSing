@@ -1,5 +1,10 @@
 <div id='clientForm'>
-  <el-button type='primary' v-on:click='clientFormVisible=true' v-show='showAddBtn'>Add Client</el-button>
+  <el-button type='primary' icon='el-icon-plus' v-on:click='clientFormVisible=true' v-show='showAddBtn'>Add Client</el-button>
+  <el-button-group v-show='!showAddBtn'>
+    <el-button type="primary" icon="el-icon-edit" v-on:click='editClientForm'></el-button>
+    <el-button type="primary" icon="el-icon-delete" v-on:click='deleteClient'></el-button>
+  </el-button-group>
+
   <el-dialog title="Add New Client" :visible.sync="clientFormVisible" width="90%">
     <el-form ref="form" :model="form" label-width="90px">
       <el-form-item label="Name">
@@ -23,7 +28,8 @@
       <el-form-item label="Lng">
         <el-input v-model="form.lng" type='number'></el-input>
       </el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
+        <el-button type="primary" v-on:click="addClient" v-show='showAddBtn'>Create</el-button>
+        <el-button type="primary" v-on:click="updateClient" v-show='!showAddBtn'>Update</el-button>
         <el-button v-on:click='clientFormVisible=false'>Cancel</el-button>
       </el-form-item>
     </el-form>

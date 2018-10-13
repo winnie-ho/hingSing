@@ -71,6 +71,11 @@ export const store = new Vuex.Store({
       Vue.http.delete('https://hing-sing.firebaseio.com/clients/' + client.id + '.json', client).then(function (data) {
         return data.json()
       })
+    },
+    updateClient: (context, client) => {
+      Vue.http.put('https://hing-sing.firebaseio.com/clients/' + client.id + '.json', client).then(function (data) {
+        return data.json()
+      })
     }
   }
 })
