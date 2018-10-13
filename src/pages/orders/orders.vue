@@ -42,6 +42,12 @@ export default {
   computed: {
     orders(){
       return this.$store.state.orders;
+    },
+    numOpenOrders(){
+      return this.orders.reduce((total, order) => total + (order.status === 'open'), 0)
+    },
+    numCompleteOrders(){
+      return this.orders.reduce((total, order) => total + (order.status === 'complete'), 0)
     }
   }
 };

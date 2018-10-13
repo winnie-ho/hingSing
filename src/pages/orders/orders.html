@@ -1,4 +1,4 @@
-<div id='orders'>
+<div id='orders' class='page'>
   <site-header></site-header>
   <el-container>
     <el-aside width='200px'>
@@ -7,9 +7,14 @@
     
     <el-main>
       <div class='row sb'>
-        <h1>Orders</h1>
+        <h1>{{ orders.length }} Orders</h1>
         <order-form v-bind:showAddBtn='true'></order-form>
       </div>
+
+      <el-tag type="success"> {{ numOpenOrders }} Open</el-tag>
+      <el-tag type="info">{{ numCompleteOrders }} Complete</el-tag></el-tag>
+
+
       <div class='orders-list'>
         <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView">
           <el-table-column
@@ -33,6 +38,10 @@
           <el-table-column
             prop="totalValue"
             label="Value (£)">
+          </el-table-column>
+          <el-table-column
+            prop="deliveryDate"
+            label="Delivery Date">
           </el-table-column>
         </el-table>
       </div>
