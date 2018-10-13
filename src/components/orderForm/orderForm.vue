@@ -8,9 +8,15 @@
       return {
         form: {
           client: '',
-          status: 'open'
+          status: 'open',
+          items: []
         },
-        orderFormVisible: false
+        itemToAdd: {
+          name: '',
+          quantity: 1
+        },
+        orderFormVisible: false,
+        productSelectVisible: false
       }
     },
     props: [ 'showAddBtn' ],
@@ -23,7 +29,8 @@
       editOrderForm(){
         this.form = {
           client: this.order.client,
-          status: this.order.status
+          status: this.order.status,
+          items: this.order.items
         }
         this.orderFormVisible = true;
       },
@@ -44,6 +51,16 @@
       },
       deleteItem(index, rows) {
         rows.splice(index, 1);
+      },
+      addItem(){
+        console.log('ADD ITEM');
+        this.form.items.push({
+          productId: '',
+          productName: '',
+          unit: '',
+          unitPrice: 0,
+          price: 0
+        })
       }
     },
     computed: {
@@ -52,6 +69,9 @@
       },
       clients(){
         return this.$store.state.clients;
+      },
+      products(){
+        return this.$store.state.products;
       },
       formTitle(){
         return this.showAddBtn ? "Add new order" : "Update order";

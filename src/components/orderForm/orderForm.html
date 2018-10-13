@@ -15,53 +15,68 @@
       </el-form-item>
       <el-form-item>
         <el-select v-model="form.client" placeholder="Client">
-          <el-option v-for='client in clients' v-bind:key=client.value v-bind:label='client.name' v-bind:value='client.value'></el-option>
+          <el-option v-for='client in clients' v-bind:key=client.name v-bind:label='client.name' v-bind:value='client.name'></el-option>
         </el-select>
       </el-form-item>
 
-      <el-table :data="order.items" style="width: 100%">
-        <el-table-column
-          fixed
-          prop="productId"
-          label="Product ID"
-          width="150">
-        </el-table-column>
-        <el-table-column
-          prop="productName"
-          label="Product"
-          width="200">
-        </el-table-column>
-        <el-table-column
-          prop="quantity"
-          label="Quantity"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          prop="unit"
-          label="Unit"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          prop="unitPrice"
-          label="Unit Price"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          prop="price"
-          label="Price"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          fixed="right"
-          width="120">
-          <template slot-scope="scope">
-            <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" type="text" size="small">Remove</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+      <el-form-item>
+        <el-table :data="form.items" style="width: 100%">
+          <el-table-column
+            fixed
+            prop="productId"
+            label="Product ID"
+            width="150">
+          </el-table-column>
+          <el-table-column
+            prop="productName"
+            label="Product"
+            width="200">
+          </el-table-column>
+          <el-table-column
+            prop="quantity"
+            label="Quantity"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="unit"
+            label="Unit"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="unitPrice"
+            label="Unit Price"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="price"
+            label="Price"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            fixed="right"
+            width="120">
+            <template slot-scope="scope">
+              <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" type="text" size="small">Remove</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+        
+      </el-form-item>
 
+      <el-form-item v-show='productSelectVisible'>
+        <el-select v-model="itemToAdd.name" placeholder="Select product">
+          <el-option v-for='product in products' v-bind:key=product.name v-bind:label="product.name + ' - ' + product.unit" v-bind:value='product.name'></el-option>
+        </el-select>
+        <el-input-number v-model="itemToAdd.quantity" @change="handleChange" :min='1' clearable ></el-input-number>
+          <el-button type="primary" v-on:click="productSelectVisible=true">Add</el-button>
+          <el-button v-on:click="productSelectVisible=false">Cancel</el-button>
+      </el-form-item>
 
-      <el-form-item >
+      <el-form-item v-show='!productSelectVisible'>
+        <el-button type="primary" icon='el-icon-plus' v-on:click="productSelectVisible=true">Add Item</el-button>
+      </el-form-item>
+
+      <el-form-item>
         <el-button type="primary" v-on:click="addOrder" v-show='showAddBtn'>Order</el-button>
         <el-button type="primary" v-on:click="updateOrder" v-show='!showAddBtn'>Update</el-button>
         <el-button v-on:click='orderFormVisible=false'>Cancel</el-button>

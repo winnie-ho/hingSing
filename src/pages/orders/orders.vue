@@ -23,6 +23,7 @@ export default {
   mounted() {
     this.$store.dispatch('fetchOrders');
     this.$store.dispatch('fetchClients');
+    this.$store.dispatch('fetchProducts');
   },
   methods: {
     orderStatusClass({row, rowIndex}) {
