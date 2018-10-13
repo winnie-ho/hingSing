@@ -6,9 +6,10 @@
     </el-aside>
     
     <el-main>
-      <h1>Orders</h1>
-      <order-form v-bind:showAddBtn='true'></order-form>
-
+      <div class='row sb'>
+        <h1>Orders</h1>
+        <order-form v-bind:showAddBtn='true'></order-form>
+      </div>
       <div class='orders-list'>
         <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView">
           <el-table-column

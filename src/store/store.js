@@ -50,6 +50,11 @@ export const store = new Vuex.Store({
         return data.json()
       })
     },
+    updateOrder: (context, order) => {
+      Vue.http.put('https://hing-sing.firebaseio.com/orders/' + order.id + '.json', order).then(function (data) {
+        return data.json()
+      })
+    },
     fetchClients: (context) => {
       Vue.http.get('https://hing-sing.firebaseio.com/clients.json').then(function (data) {
         return data.json()

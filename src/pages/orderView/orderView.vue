@@ -5,6 +5,7 @@
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import siteFooter from "../../components/siteFooter/siteFooter.vue";
+import orderForm from "../../components/orderForm/orderForm.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -12,7 +13,8 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
-    "site-footer": siteFooter
+    "site-footer": siteFooter,
+    "order-form": orderForm
   },
   data() {
     return {

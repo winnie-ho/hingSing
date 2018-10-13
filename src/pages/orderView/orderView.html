@@ -5,7 +5,12 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <h1>Order: {{ order.id }}</h1>
+      <div class='row sb'>
+        <h1>Order: {{ order.id }}</h1>
+        <div class='row'>
+          <order-form v-bind:showAddBtn='false'></order-form>
+        </div>
+      </div>
       <h1>Date: {{ order.date }}</h1>
       <h1>Client: {{ order.clientName }}</h1>
       <h1>Number of items: {{ order.items.length }}</h1>

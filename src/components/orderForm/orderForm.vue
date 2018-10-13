@@ -15,22 +15,50 @@
           lat: '',
           lng: '',
         },
-        clientFormVisible: false,
+        orderFormVisible: false,
       }
     },
-    props: ['displayClientForm', 'showAddBtn'],
+    props: [ 'showAddBtn' ],
     methods: {
-      async onSubmit() {
-        await this.$store.dispatch('addClient', this.form);
-        this.clientFormVisible = false;
-        setTimeout(this.refreshClientsList, 500);
+      addOrder() {
+        this.$store.dispatch('addOrder', this.form);
+        this.orderFormVisible = false;
+        setTimeout(this.refreshOrdersList, 500);
       },
-      async refreshClientsList(){
-        await this.$store.dispatch('fetchClients');
-        await this.$router.push('/clients/');
+      editOrderForm(){
+        this.form = {
+          name: this.order.name,
+          address: this.order.address,
+          postcode: this.order.postcode,
+          phone: this.order.phone,
+          email: this.order.email,
+          lat: parseFloat(this.order.lat),
+          lng: parseFloat(this.order.lng)
+        }
+        this.orderFormVisible = true;
+      },
+      updateOrder(){
+        const updatedOrder = Object.assign({}, this.form, {
+          id: this.order.id,
+          lat: parseFloat(this.form.lat),
+          lng: parseFloat(this.form.lng)
+        });
+        this.$store.dispatch('updateOrder', updatedOrder);
+        setTimeout(this.refreshOrdersList, 500);
+      },
+      deleteOrder(){
+        this.$store.dispatch('deleteOrder', this.order);
+        setTimeout(this.refreshOrdersList, 500);
+      },
+      async refreshOrdersList(){
+        await this.$store.dispatch('fetchOrders');
+        await this.$router.push('/orders/');
       }
     },
     computed: {
+      order(){
+        return this.$store.state.order;
+      }
     }
   }
 </script>
