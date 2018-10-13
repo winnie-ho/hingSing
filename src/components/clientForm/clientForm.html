@@ -6,27 +6,27 @@
   </el-button-group>
 
   <el-dialog title="Add New Client" :visible.sync="clientFormVisible" width="90%">
-    <el-form ref="form" :model="form" label-width="90px">
-      <el-form-item label="Name">
-        <el-input v-model="form.name" clearable></el-input>
+    <el-form ref="form" :model="form">
+      <el-form-item>
+        <el-input v-model="form.name" placeholder='Name' clearable ></el-input>
       </el-form-item>
-      <el-form-item label="Address">
-        <el-input v-model="form.address" clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.address" placeholder="Address" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Postcode">
-        <el-input v-model="form.postcode" clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.postcode" placeholder="Postcode" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Phone">
-        <el-input v-model="form.phone" clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.phone" placeholder="Phone" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Email">
-        <el-input v-model="form.email" clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.email" placeholder="Email" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Lat">
-        <el-input v-model="form.lat" type='number' clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.lat" type='number' placeholder="Lat" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Lng">
-        <el-input v-model="form.lng" type='number' clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.lng" type='number' placeholder="Lng" clearable></el-input>
       </el-form-item>
         <el-button type="primary" v-on:click="addClient" v-show='showAddBtn'>Create</el-button>
         <el-button type="primary" v-on:click="updateClient" v-show='!showAddBtn'>Update</el-button>
