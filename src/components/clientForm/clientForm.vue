@@ -21,7 +21,10 @@
     props: [ 'showAddBtn' ],
     methods: {
       addClient() {
-        this.$store.dispatch('addClient', this.form);
+        this.$store.dispatch('addClient', Object.assign({}, this.form, {
+          lat: parseFloat(this.form.lat),
+          lng: parseFloat(this.form.lng)
+        }));
         this.clientFormVisible = false;
         setTimeout(this.refreshClientsList, 500);
       },
@@ -32,8 +35,8 @@
           postcode: this.client.postcode,
           phone: this.client.phone,
           email: this.client.email,
-          lat: this.client.lat,
-          lng: this.client.lng
+          lat: parseFloat(this.client.lat),
+          lng: parseFloat(this.client.lng)
         }
         this.clientFormVisible = true;
       },
