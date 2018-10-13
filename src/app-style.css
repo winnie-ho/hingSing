@@ -5,6 +5,10 @@
   margin: -8px;
 }
 
+.el-main{
+  height: 100%;
+}
+
 .row{
   display: flex;
   flex-direction: row;
