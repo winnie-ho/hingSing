@@ -11,11 +11,12 @@
           <order-form v-bind:showAddBtn='false'></order-form>
         </div>
       </div>
-      <h1>Date: {{ order.date }}</h1>
-      <h1>Client: {{ order.clientName }}</h1>
-      <h1>Number of items: {{ order.items.length }}</h1>
-      <h1>Total value: £{{ order.totalValue }}</h1>
-      <h1>Status: {{ order.status }}</h1>
+      <h3>Date: {{ order.date }}</h3>
+      <h3>Client: {{ order.client }}</h3>
+      <h3>Number of items: {{ order.items.length }}</h3>
+      <h3>Total value: £{{ order.totalValue }}</h3>
+
+      <el-tag v-bind:type='type'>{{ order.status }}</el-tag>
 
       <div class='order-items-list'>
         <el-table :data="order.items" style="width: 100%">

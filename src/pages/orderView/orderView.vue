@@ -29,6 +29,18 @@ export default {
   computed: {
     order(){
       return this.$store.state.order;
+    },
+    type(){
+      switch(this.order.status) {
+        case 'open':
+          return 'success';
+          break;
+        case 'complete':
+          return 'info';
+          break;
+        default:
+          return '';
+      }
     }
   }
 };
