@@ -42,7 +42,9 @@
       },
       updateClient(){
         const updatedClient = Object.assign({}, this.form, {
-          id: this.client.id
+          id: this.client.id,
+          lat: parseFloat(this.form.lat),
+          lng: parseFloat(this.form.lng)
         });
         this.$store.dispatch('updateClient', updatedClient);
         setTimeout(this.refreshClientsList, 500);
