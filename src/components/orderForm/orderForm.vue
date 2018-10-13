@@ -88,7 +88,7 @@
         return items.reduce((totalCost, item) => totalCost + parseFloat(item.price), 0);
       },
       printOrderForm(){
-        console.log('PRINT ORDER FORM');
+        window.print();
       }
     },
     computed: {
