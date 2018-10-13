@@ -56,7 +56,7 @@
             fixed="right"
             width="120">
             <template slot-scope="scope">
-              <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" type="text" size="small">Remove</el-button>
+              <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" icon='el-icon-delete' type='danger' circle></el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -64,12 +64,12 @@
       </el-form-item>
 
       <el-form-item v-show='productSelectVisible'>
-        <el-select v-model="itemToAdd.name" placeholder="Select product">
-          <el-option v-for='product in products' v-bind:key=product.name v-bind:label="product.name + ' - ' + product.unit" v-bind:value='product.name'></el-option>
+        <el-select v-model="itemToAdd.id" placeholder="Select product">
+          <el-option v-for='product in products' v-bind:key=product.id v-bind:label="product.name + ' - ' + product.unit" v-bind:value='product.id'></el-option>
         </el-select>
-        <el-input-number v-model="itemToAdd.quantity" @change="handleChange" min='1' clearable ></el-input-number>
-          <el-button type="primary" v-on:click="productSelectVisible=true">Add</el-button>
-          <el-button v-on:click="productSelectVisible=false">Cancel</el-button>
+        <el-input-number v-model="itemToAdd.quantity" v-on:change="handleItemToAddQuantity" :min='1' clearable ></el-input-number>
+        <el-button type="primary" v-on:click="addItemToOrder">Add</el-button>
+        <el-button v-on:click="productSelectVisible=false">Cancel</el-button>
       </el-form-item>
 
       <el-form-item v-show='!productSelectVisible'>

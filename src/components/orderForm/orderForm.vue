@@ -12,7 +12,7 @@
           items: []
         },
         itemToAdd: {
-          name: '',
+          id: '',
           quantity: 1
         },
         orderFormVisible: false,
@@ -52,15 +52,22 @@
       deleteItem(index, rows) {
         rows.splice(index, 1);
       },
-      addItem(){
-        console.log('ADD ITEM');
+      addItemToOrder(){
+        const fullItemToAdd = this.getProduct(this.itemToAdd.id);
         this.form.items.push({
-          productId: '',
-          productName: '',
-          unit: '',
-          unitPrice: 0,
-          price: 0
+          productId: this.itemToAdd.id,
+          quantity: this.itemToAdd.quantity,
+          productName: fullItemToAdd.name,
+          unit: fullItemToAdd.unit,
+          unitPrice: fullItemToAdd.unitPrice,
+          price: parseInt(this.itemToAdd.quantity) * parseInt(fullItemToAdd.unitPrice)
         })
+      },
+      handleItemToAddQuantity(e){
+        this.itemToAdd.quantity = e;
+      },
+      getProduct(productId){
+        return this.products.find(product => product.id === productId);
       }
     },
     computed: {
