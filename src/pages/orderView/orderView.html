@@ -6,15 +6,15 @@
     </el-aside>
     <el-main>
       <div class='row sb'>
-        <h1>Order: {{ order.id }}</h1>
+        <h4>Order: {{ order.id }}</h4>
         <div class='row'>
           <order-form v-bind:showAddBtn='false'></order-form>
         </div>
       </div>
-      <h3>Date: {{ order.date }}</h3>
-      <h3>Client: {{ order.client }}</h3>
-      <h3>Number of items: {{ order.items.length }}</h3>
-      <h3>Total value: £{{ order.totalValue }}</h3>
+      <h1>{{ order.client }}</h1>
+      <h4>Updated: {{ order.date }}</h4>
+      <h4>Number of items: {{ order.items.length }}</h4>
+      <h4>Total value: £{{ order.totalValue }}</h4>
 
       <el-tag v-bind:type='type'>{{ order.status }}</el-tag>
 
@@ -32,6 +32,16 @@
           <el-table-column
             prop="quantity"
             label="Quantity">
+          </el-table-column>
+          <el-table-column
+            prop="unit"
+            label="Unit"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="unitPrice"
+            label="Unit Price"
+            width="120">
           </el-table-column>
           <el-table-column
             prop="price"
