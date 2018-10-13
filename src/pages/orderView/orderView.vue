@@ -6,6 +6,7 @@ import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import siteFooter from "../../components/siteFooter/siteFooter.vue";
 import orderForm from "../../components/orderForm/orderForm.vue";
+import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -14,7 +15,8 @@ export default {
     "nav-menu": navMenu,
     "site-header": siteHeader,
     "site-footer": siteFooter,
-    "order-form": orderForm
+    "order-form": orderForm,
+    "breadcrumb-bar": breadcrumbBar
   },
   data() {
     return {
