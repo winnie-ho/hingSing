@@ -5,7 +5,7 @@
     <el-button type="primary" icon="el-icon-delete" v-on:click='deleteClient'></el-button>
   </el-button-group>
 
-  <el-dialog title="Add New Client" :visible.sync="clientFormVisible" width="90%">
+  <el-dialog v-bind:title='formTitle' :visible.sync="clientFormVisible" width="90%">
     <el-form ref="form" :model="form">
       <el-form-item>
         <el-input v-model="form.name" placeholder='Name' clearable ></el-input>

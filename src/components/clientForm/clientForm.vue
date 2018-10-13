@@ -61,6 +61,9 @@
     computed: {
       client(){
         return this.$store.state.client;
+      },
+      formTitle(){
+        return this.showAddBtn ? "Add new client" : "Update client";
       }
     }
   }
