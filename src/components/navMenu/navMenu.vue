@@ -6,7 +6,6 @@
     name: 'navMenu',
     data () {
       return {
-        
       }
     },
     props: {
@@ -15,6 +14,9 @@
     methods: {
     },
     computed: {
+      isCollapsed() {
+        return window.innerWidth < 500;
+      }
     }
   }
 </script>

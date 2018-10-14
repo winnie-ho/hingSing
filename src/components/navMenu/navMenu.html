@@ -1,21 +1,24 @@
 <div id='navMenu'>
-  <el-menu :default-openeds="['1', '2']">
+  <el-menu default-active="2" :default-openeds="['1', '2']" :collapse="isCollapsed" class="el-menu-vertical-demo">
     <router-link to="/products" exact>
       <el-menu-item index="1">
-        <template slot="title"><i class="el-icon-goods"></i>Products</template>
+        <i class="el-icon-goods"></i>
+        <span slot="title">Products</span>
       </el-menu-item>
     </router-link>
 
     <router-link to="/orders" exact>
       <el-menu-item index="2">
-        <template slot="title"><i class="el-icon-tickets"></i>Orders</template>
+        <i class="el-icon-tickets"></i>
+        <span slot="title">Orders</span>
       </el-menu-item>
     </router-link>
     
     <router-link to="/clients" exact>
       <el-menu-item index="3">
-        <template slot="title"><i class="el-icon-news"></i>Clients</template>
+        <i class="el-icon-news"></i>
+        <span slot="title">Clients</span>
       </el-menu-item>
     </router-link>
-  </el-menu>
+  </el-menu>  
 </div>

@@ -182,4 +182,8 @@ a{
   table {
     font-size: 11px;
   }
+
+  .el-aside{
+    width: 40px !important;
+  }
 }
