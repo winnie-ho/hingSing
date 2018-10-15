@@ -2,7 +2,7 @@
   <site-header></site-header>
 
   <el-container>
-    <el-aside width='200px'>
+    <el-aside width='130px'>
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
@@ -36,6 +36,13 @@
           <el-table-column
             prop="Price"
             label="Price (£)">
+          </el-table-column>
+          <el-table-column
+            fixed="right"
+            width="120">
+            <template slot-scope="scope">
+              <el-button v-on:click.native.prevent="deleteItem(scope.$index, basket)" icon='el-icon-delete' type='danger' circle></el-button>
+            </template>
           </el-table-column>
         </el-table>
       </div>

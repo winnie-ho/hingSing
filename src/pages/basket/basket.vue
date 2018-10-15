@@ -28,10 +28,13 @@ export default {
       }
     };
   },
-  mounted() {
-    this.$store.dispatch('fetchClients')
-  },
   methods: {
+    deleteItem(index, rows) {
+      rows.splice(index, 1);
+    },
+    handleChange(){
+      console.log('handle change on number')
+    }
   },
   computed: {
     basket(){
