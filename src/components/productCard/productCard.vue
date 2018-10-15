@@ -10,6 +10,11 @@
     },
     props: [ "product" ],
     methods: {
+      enterProductView(e){
+        console.log('e', e);
+        // this.$store.dispatch('setProduct', e)
+        // this.$router.push('/productView/' + e.id)
+    }
     },
     computed: {
     }

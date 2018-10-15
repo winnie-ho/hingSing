@@ -1,0 +1,32 @@
+<div id='productForm'>
+    <el-button type='primary' icon='el-icon-plus' v-on:click='productFormVisible=true' v-show='showAddBtn'>New Product</el-button>
+    <el-button-group v-show='!showAddBtn'>
+      <el-button type="primary" icon="el-icon-printer" v-on:click='printProductForm'></el-button>
+      <el-button type="primary" icon="el-icon-edit" v-on:click='editProductForm'></el-button>
+      <el-button type="primary" icon="el-icon-delete" v-on:click='deleteProduct'></el-button>
+    </el-button-group>
+
+  <el-dialog v-bind:title="formTitle" :visible.sync="productFormVisible" width="90%">
+    <el-form ref="form" :model="form">
+      
+      <el-form-item>
+        <el-input v-model="form.name" placeholder='Name' clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.unit" placeholder='Unit' clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.unitPrice" placeholder='Unit Price' clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.image" placeholder='Image' clearable></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" v-on:click="addProduct" v-show='showAddBtn'>Add</el-button>
+        <el-button type="primary" v-on:click="updateProduct" v-show='!showAddBtn'>Update</el-button>
+        <el-button v-on:click='productFormVisible=false'>Cancel</el-button>
+      </el-form-item>
+    </el-form>
+  </el-dialog>
+</div>

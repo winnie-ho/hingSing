@@ -18,7 +18,8 @@ export const store = new Vuex.Store({
     setOrders: (state, payload) => (state.orders = payload),
     setProducts: (state, payload) => (state.products = payload),
     setClient: (state, payload) => (state.client = payload),
-    setOrder: (state, payload) => (state.order = payload)
+    setOrder: (state, payload) => (state.order = payload),
+    setProduct: (state, payload) => (state.product = payload)
   },
   getters: {
 
@@ -29,6 +30,9 @@ export const store = new Vuex.Store({
     },
     setClient: (context, client) => {
       context.commit('setClient', client)
+    },
+    setProduct: (context, product) => {
+      context.commit('setProduct', product)
     },
     fetchOrders: (context) => {
       Vue.http.get('https://hing-sing.firebaseio.com/orders.json').then(function (data) {
@@ -96,5 +100,20 @@ export const store = new Vuex.Store({
         context.commit('setProducts', products)
       })
     },
+    addProduct: (context, product) => {
+      Vue.http.post('https://hing-sing.firebaseio.com/products.json', product).then(function (data) {
+        return data.json()
+      })
+    },
+    deleteProduct: (context, product) => {
+      Vue.http.delete('https://hing-sing.firebaseio.com/products/' + product.id + '.json').then(function (data) {
+        return data.json()
+      })
+    },
+    updateProducts: (context, product) => {
+      Vue.http.put('https://hing-sing.firebaseio.com/products/' + product.id + '.json', product).then(function (data) {
+        return data.json()
+      })
+    }
   }
 })
