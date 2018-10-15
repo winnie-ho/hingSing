@@ -21,7 +21,9 @@
           <el-table-column
             prop="quantity"
             label="Quantity">
-            <el-input-number></el-input-number>
+            <template slot-scope="scope">
+              <el-input-number v-model="product.quantity" @change="handleChange" :min="1" :max="10" size="mini"></el-input-number>
+            </template>
           </el-table-column>
           <el-table-column
             prop="unit"

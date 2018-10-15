@@ -22,7 +22,10 @@ export default {
         { name: "home", path: "/" },
         { name: "clients", path:"/clients/" },
         { name: "clientView", path:"/clientView/:id/" }
-      ]
+      ],
+      product: {
+        quantity: 1
+      }
     };
   },
   mounted() {
