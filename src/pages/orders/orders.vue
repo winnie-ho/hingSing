@@ -20,6 +20,11 @@ export default {
   },
   data() {
     return {
+      breadcrumbContent: [
+        {name:"home", path: "/"}, 
+        {name:"orders", path: "/orders/"},
+        {name:"orderView", path: "/orderView/:id/"}
+      ]
     };
   },
   mounted() {

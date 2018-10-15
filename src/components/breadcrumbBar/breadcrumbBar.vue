@@ -8,12 +8,12 @@
       return {
       }
     },
-    props: [],
+    props: [
+      'breadcrumbContent'
+    ],
     methods: {
-      
     },
     computed: {
-
     }
   }
 </script>

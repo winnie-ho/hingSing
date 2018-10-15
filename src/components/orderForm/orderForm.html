@@ -18,7 +18,7 @@
 
       <el-form-item>
         <el-select v-model="form.client" placeholder="Client">
-          <el-option v-for='client in clients' v-bind:key=client.name v-bind:label='client.name' v-bind:value='client.name'></el-option>
+          <el-option v-for='client in clients' v-bind:key='client.name' v-bind:label='client.name' v-bind:value='client.name'></el-option>
         </el-select>
       </el-form-item>
 

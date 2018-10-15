@@ -1,7 +1,5 @@
 <div id='breadcrumbBar'>
   <el-breadcrumb separator-class="el-icon-arrow-right">
-    <el-breadcrumb-item :to="{ path: '/' }">home</el-breadcrumb-item>
-    <el-breadcrumb-item :to="{ path: '/orders/' }">orders</el-breadcrumb-item>
-    <el-breadcrumb-item :to="{ path: '/orderView/:id' }">order</el-breadcrumb-item>
+    <el-breadcrumb-item v-for='breadcrumb in breadcrumbContent' v-bind:key='breadcrumb.name' v-bind:to="{ path:breadcrumb.path }">{{ breadcrumb.name }}</el-breadcrumb-item>
   </el-breadcrumb>
 </div>
