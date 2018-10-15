@@ -1,7 +1,6 @@
 <div id='productForm'>
     <el-button type='primary' icon='el-icon-plus' v-on:click='productFormVisible=true' v-show='showAddBtn'>New Product</el-button>
     <el-button-group v-show='!showAddBtn'>
-      <el-button type="primary" icon="el-icon-printer" v-on:click='printProductForm'></el-button>
       <el-button type="primary" icon="el-icon-edit" v-on:click='editProductForm'></el-button>
       <el-button type="primary" icon="el-icon-delete" v-on:click='deleteProduct'></el-button>
     </el-button-group>
@@ -16,7 +15,7 @@
         <el-input v-model="form.unit" placeholder='Unit' clearable></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input v-model="form.unitPrice" placeholder='Unit Price' clearable></el-input>
+        <el-input v-model="form.unitPrice" placeholder='Unit Price' type='number' clearable></el-input>
       </el-form-item>
       <el-form-item>
         <el-input v-model="form.image" placeholder='Image' clearable></el-input>

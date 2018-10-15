@@ -10,11 +10,10 @@
     },
     props: [ "product" ],
     methods: {
-      enterProductView(e){
-        console.log('e', e);
-        // this.$store.dispatch('setProduct', e)
-        // this.$router.push('/productView/' + e.id)
-    }
+      enterProductView(product){
+        this.$store.dispatch('setProduct', product)
+        this.$router.push('/productView/' + product.id)
+      }
     },
     computed: {
     }

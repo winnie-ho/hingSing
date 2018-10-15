@@ -110,7 +110,7 @@ export const store = new Vuex.Store({
         return data.json()
       })
     },
-    updateProducts: (context, product) => {
+    updateProduct: (context, product) => {
       Vue.http.put('https://hing-sing.firebaseio.com/products/' + product.id + '.json', product).then(function (data) {
         return data.json()
       })
