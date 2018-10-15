@@ -108,6 +108,9 @@
       },
       formTitle(){
         return this.showAddBtn ? "Add new order" : "Update order";
+      },
+      isCollapsed() {
+        return window.innerWidth < 500;
       }
     }
   }
