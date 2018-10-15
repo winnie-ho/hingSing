@@ -1,0 +1,10 @@
+<div id='productCard'>
+  <el-card>
+    <img v-bind:src='product.image'>
+    <div class='product__text'>
+      <h4>{{ product.name }}</h4>
+      <h4>{{ product.unit }}</h4>
+      <h4>£{{ product.unitPrice }}</h4>
+    </div>
+  </el-card>
+</div>
