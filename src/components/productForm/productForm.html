@@ -1,5 +1,6 @@
 <div id='productForm'>
-    <el-button type='primary' icon='el-icon-plus' v-on:click='productFormVisible=true' v-show='showAddBtn'>New Product</el-button>
+    <el-button type='primary' icon='el-icon-plus' v-on:click='productFormVisible=true' v-show='showAddBtn &&!isCollapsed'>New Product</el-button>
+    <el-button type='primary' icon='el-icon-plus' v-on:click='productFormVisible=true' v-show='showAddBtn && isCollapsed' :circle='isCollapsed'></el-button>
     <el-button-group v-show='!showAddBtn'>
       <el-button type="primary" icon="el-icon-edit" v-on:click='editProductForm'></el-button>
       <el-button type="primary" icon="el-icon-delete" v-on:click='deleteProduct'></el-button>

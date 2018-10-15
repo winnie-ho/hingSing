@@ -56,6 +56,9 @@
       },
       formTitle(){
         return this.showAddBtn ? "Add new product" : "Update product";
+      },
+      isCollapsed() {
+        return window.innerWidth < 500;
       }
     }
   }

@@ -66,6 +66,9 @@
       },
       formTitle(){
         return this.showAddBtn ? "Add new client" : "Update client";
+      },
+      isCollapsed() {
+        return window.innerWidth < 500;
       }
     }
   }

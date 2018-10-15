@@ -6,7 +6,7 @@
   grid-template-columns: 20% 20% 20% 20%;
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 500px) {
   .product-list{
     display: flex;
     flex-direction: column;
