@@ -80,7 +80,7 @@
           productName: fullItemToAdd.name,
           unit: fullItemToAdd.unit,
           unitPrice: fullItemToAdd.unitPrice,
-          price: parseInt(this.itemToAdd.quantity) * parseInt(fullItemToAdd.unitPrice)
+          price: (parseInt(this.itemToAdd.quantity) * parseFloat(fullItemToAdd.unitPrice)).toFixed(2)
         })
       },
       handleItemToAddQuantity(e){
