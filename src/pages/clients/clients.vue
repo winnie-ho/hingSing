@@ -4,7 +4,6 @@
 <script>
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
-import siteFooter from "../../components/siteFooter/siteFooter.vue";
 import clientForm from "../../components/clientForm/clientForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
@@ -14,7 +13,6 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
-    "site-footer": siteFooter,
     "client-form": clientForm,
     "breadcrumb-bar": breadcrumbBar
   },

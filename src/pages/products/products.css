@@ -5,3 +5,10 @@
   justify-content: center;
   grid-template-columns: 20% 20% 20% 20%;
 }
+
+@media all and (max-width: 400px) {
+  .product-list{
+    display: flex;
+    flex-direction: column;
+  }
+}
