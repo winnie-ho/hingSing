@@ -7,6 +7,7 @@ import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import siteFooter from "../../components/siteFooter/siteFooter.vue";
 import googleMap from '../../components/googleMap/googleMap.vue'
 import clientForm from "../../components/clientForm/clientForm.vue";
+import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -16,10 +17,16 @@ export default {
     "site-header": siteHeader,
     "site-footer": siteFooter,
     "google-map": googleMap,
-    "client-form": clientForm
+    "client-form": clientForm,
+    "breadcrumb-bar": breadcrumbBar
   },
   data() {
     return {
+      breadcrumbContent: [
+        { name: "home", path: "/" },
+        { name: "clients", path:"/clients/" },
+        { name: "clientView", path:"/clientView/:id/" }
+      ]
     };
   },
   mounted() {

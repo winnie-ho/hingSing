@@ -6,6 +6,7 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
+      <breadcrumb-bar v-bind:breadcrumbContent='breadcrumbContent'></breadcrumb-bar>
       <div class='row sb'>
         <h1>{{ clients.length }} Clients</h1>
         <client-form v-bind:showAddBtn='true'></client-form>
