@@ -2,8 +2,13 @@
 <style scoped src='./orderForm.css'></style>
 
 <script src>
+  import productForm from "../productForm/productForm.vue";
+
   export default {
     name: 'orderForm',
+    components: {
+      "product-form": productForm
+    },
     data () {
       return {
         form: {
