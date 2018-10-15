@@ -13,9 +13,15 @@
       enterProductView(product){
         this.$store.dispatch('setProduct', product)
         this.$router.push('/productView/' + product.id)
+      },
+      addToBasket(){
+        this.$store.dispatch('addToBasket', this.product);
       }
     },
     computed: {
+      basket(){
+        this.$store.state.basket;
+      }
     }
   }
 </script>

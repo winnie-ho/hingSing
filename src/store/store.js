@@ -11,7 +11,8 @@ export const store = new Vuex.Store({
     client: {},
     clients: [],
     orders: [],
-    products: []
+    products: [],
+    basket: []
   },
   mutations: {
     setClients: (state, payload) => (state.clients = payload),
@@ -19,7 +20,8 @@ export const store = new Vuex.Store({
     setProducts: (state, payload) => (state.products = payload),
     setClient: (state, payload) => (state.client = payload),
     setOrder: (state, payload) => (state.order = payload),
-    setProduct: (state, payload) => (state.product = payload)
+    setProduct: (state, payload) => (state.product = payload),
+    addToBasket: (state, payload) => (state.basket.push(payload))
   },
   getters: {
 
@@ -114,6 +116,9 @@ export const store = new Vuex.Store({
       Vue.http.put('https://hing-sing.firebaseio.com/products/' + product.id + '.json', product).then(function (data) {
         return data.json()
       })
+    },
+    addToBasket: (context, product) => {
+      context.commit('addToBasket', product)
     }
   }
 })

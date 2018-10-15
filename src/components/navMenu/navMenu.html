@@ -2,14 +2,14 @@
   <el-menu default-active="1" :collapse="isCollapsed" class="el-menu-vertical-demo">
     <router-link to="/" exact>
       <el-menu-item index="1">
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-star-off"></i>
         <span slot="title">Home</span>
       </el-menu-item>
     </router-link>
 
     <router-link to="/products" exact>
       <el-menu-item index="2">
-        <i class="el-icon-goods"></i>
+        <i class="el-icon-menu"></i>
         <span slot="title">Products</span>
       </el-menu-item>
     </router-link>
@@ -25,6 +25,13 @@
       <el-menu-item index="4">
         <i class="el-icon-news"></i>
         <span slot="title">Clients</span>
+      </el-menu-item>
+    </router-link>
+
+    <router-link to="/basket" exact>
+      <el-menu-item index="5">
+        <i class="el-icon-goods"></i>
+        <span slot="title">Basket</span>
       </el-menu-item>
     </router-link>
   </el-menu>  

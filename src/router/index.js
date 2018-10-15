@@ -7,6 +7,7 @@ import orders from '../pages/orders/orders.vue'
 import orderView from '../pages/orderView/orderView.vue'
 import clients from '../pages/clients/clients.vue'
 import clientView from '../pages/clientView/clientView.vue'
+import basket from '../pages/basket/basket.vue'
 
 Vue.use(Router)
 
@@ -18,6 +19,7 @@ export default new Router({
     { path: '/orders', component: orders },
     { path: '/orderView/:id', component: orderView },
     { path: '/clients', component: clients },
-    { path: '/clientView/:id', component: clientView }
+    { path: '/clientView/:id', component: clientView },
+    { path: '/basket', component: basket }
   ]
 })
