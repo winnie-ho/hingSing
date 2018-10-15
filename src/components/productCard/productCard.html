@@ -1,10 +1,11 @@
 <div id='productCard' v-on:click='enterProductView(product)'>
-  <el-card>
+  <div class='product col'>
     <img v-bind:src='product.image'>
     <div class='product__text'>
       <h4>{{ product.name }}</h4>
-      <h4>{{ product.unit }}</h4>
-      <h4>£{{ product.unitPrice }}</h4>
+      <h5>{{ product.unit }}</h5>
+      <h5>£{{ product.unitPrice }}</h5>
     </div>
-  </el-card>
+    <el-button type='primary' size='mini' plain>Add</el-button>
+  </div>
 </div>
