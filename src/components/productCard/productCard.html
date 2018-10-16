@@ -1,7 +1,7 @@
-<div id='productCard' v-on:click='enterProductView(product)'>
+<div id='productCard'>
   <div class='product col'>
     <img v-bind:src='product.image'>
-    <div class='product__text'>
+    <div class='product__text' v-on:click='enterProductView(product)'>
       <h4>{{ product.name }}</h4>
       <h5>{{ product.unit }}</h5>
       <h5>£{{ product.unitPrice }}</h5>
