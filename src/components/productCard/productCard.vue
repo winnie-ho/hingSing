@@ -15,8 +15,11 @@
         this.$router.push('/productView/' + product.id)
       },
       addToBasket(){
-        this.$store.dispatch('addToBasket', this.product);
-      }
+        this.$store.dispatch('addToBasket', Object.assign({}, this.product, {
+          price: this.product.unitPrice,
+          quantity: 1
+        })
+      )}
     },
     computed: {
       basket(){
