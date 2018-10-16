@@ -14,14 +14,16 @@
             <el-table-column
             prop="name"
             label="Product"
-            width="150">
+            fit>
           </el-table-column>
           <el-table-column
             prop="quantity"
-            label="Quantity"
-            width='80'>
+            width='50'
+            align='right'>
           </el-table-column>
-          <el-table-column>
+          <el-table-column
+            label="Qty"
+            width='80'>
             <template slot-scope="scope">
               <quantity-form></quantity-form>
             </template>
@@ -42,7 +44,7 @@
             fixed="right"
             width="120">
             <template slot-scope="scope">
-              <el-button v-on:click.native.prevent="deleteItem(scope.$index, basket)" icon='el-icon-delete' type='danger' circle></el-button>
+              <el-button v-on:click.native.prevent="deleteItem(scope.$index, basket)" icon='el-icon-delete' type='danger' circle size='mini'></el-button>
             </template>
           </el-table-column>
         </el-table>
