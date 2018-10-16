@@ -78,6 +78,8 @@
         <el-input-number v-model="itemToAdd.quantity" v-on:change="handleItemToAddQuantity" :min='1' clearable ></el-input-number>
         <el-button type="primary" v-on:click="addItemToOrder">Add</el-button>
         <el-button v-on:click="productSelectVisible=false">Cancel</el-button>
+      </el-form-item>
+      <el-form-item v-show='productSelectVisible'>
         <product-form v-bind:showAddBtn='true'></product-form>
       </el-form-item>
 
