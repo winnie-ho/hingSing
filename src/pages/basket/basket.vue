@@ -20,8 +20,8 @@ export default {
     return {
       breadcrumbContent: [
         { name: "home", path: "/" },
-        { name: "clients", path:"/clients/" },
-        { name: "clientView", path:"/clientView/:id/" }
+        { name: "products", path:"/products/" },
+        { name: "basket", path:"/basket/" }
       ]
     };
   },
