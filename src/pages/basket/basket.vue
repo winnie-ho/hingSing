@@ -36,6 +36,12 @@ export default {
   computed: {
     basket(){
       return this.$store.state.basket
+    },
+    basketValue(){
+      const totalValue = this.basket.reduce((total, item) => {
+        return total + parseFloat(item.price);
+      }, 0);
+      return totalValue.toFixed(2);
     }
   }
 };
