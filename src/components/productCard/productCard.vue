@@ -18,8 +18,15 @@
         this.$store.dispatch('addToBasket', Object.assign({}, this.product, {
           price: this.product.unitPrice,
           quantity: 1
-        })
-      )}
+        }))
+        this.successMessage(this.product.name);
+      },
+      successMessage(product){
+        return this.$message({
+          message: product + " added to basket",
+          type: 'success'
+        });
+      }
     },
     computed: {
       basket(){

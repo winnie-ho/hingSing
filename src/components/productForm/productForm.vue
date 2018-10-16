@@ -22,7 +22,8 @@
           unitPrice: (parseFloat(this.form.unitPrice)).toFixed(2)
         }));
         this.productFormVisible = false;
-        setTimeout(this.refreshProductsList, 500);
+        setTimeout(this.refreshProductsList, 100);
+        this.successMessage(' successfully added');
       },
       editProductForm(){
         this.form = {
@@ -39,15 +40,22 @@
           unitPrice: (parseFloat(this.form.unitPrice)).toFixed(2)
         });
         this.$store.dispatch('updateProduct', updatedProduct);
-        setTimeout(this.refreshProductsList, 500);
+        setTimeout(this.refreshProductsList, 100);
+        this.successMessage(' successfully updated');
       },
       deleteProduct(){
         this.$store.dispatch('deleteProduct', this.product);
-        setTimeout(this.refreshProductsList, 500);
+        setTimeout(this.refreshProductsList, 100);
       },
       async refreshProductsList(){
         await this.$store.dispatch('fetchProducts');
         await this.$router.push('/products/');
+      },
+      successMessage(message){
+        return this.$message({
+          message: this.form.name + message,
+          type: 'success'
+        });
       }
     },
     computed: {

@@ -14,7 +14,7 @@ export default {
     "nav-menu": navMenu,
     "site-header": siteHeader,
     "product-card": productCard,
-    "product-form": productForm
+    "product-form": productForm,
   },
   data() {
     return {
