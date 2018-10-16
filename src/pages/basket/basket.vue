@@ -4,7 +4,7 @@
 <script>
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
-import orderForm from "../../components/orderForm/orderForm.vue";
+import quantityForm from "../../components/quantityForm/quantityForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
 
@@ -13,7 +13,7 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
-    "order-form": orderForm,
+    "quantity-form": quantityForm,
     "breadcrumb-bar": breadcrumbBar
   },
   data() {
@@ -22,18 +22,15 @@ export default {
         { name: "home", path: "/" },
         { name: "clients", path:"/clients/" },
         { name: "clientView", path:"/clientView/:id/" }
-      ],
-      product: {
-        quantity: 1
-      }
+      ]
     };
   },
   methods: {
     deleteItem(index, rows) {
       rows.splice(index, 1);
     },
-    handleChange(){
-      console.log('handle change on number')
+    setProductToEdit(product){
+      this.$store.dispatch('updateBasketProductToEdit', product)
     }
   },
   computed: {
