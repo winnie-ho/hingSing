@@ -2,12 +2,12 @@
   <el-button type='primary' icon='el-icon-edit' v-on:click='quantityFormVisible=true' size='mini' circle></el-button>
 
   <el-dialog title='Update quantity' :visible.sync="quantityFormVisible" width="300px">
-    <el-form ref="form" :model="form">
+    <el-form>
         <h1>{{ basketProductToEdit.name }}</h1>
         <h4>{{ basketProductToEdit.unit }}</h4>
         <h4>£{{ basketProductToEdit.unitPrice }} each</h4>
         <el-form-item>
-          <el-input-number v-model='form.quantity' :min="1" :max="10" size="mini"></el-input-number>
+          <el-input-number v-model='basketProductToEdit.quantity' :min="1" :max="10" size="mini"></el-input-number>
           <h3>Total £{{ price }}</h3>
         </el-form-item>
       

@@ -6,9 +6,6 @@
     name: 'quantityForm',
     data () {
       return {
-        form: {
-          quantity: 1
-        },
         quantityFormVisible: false,
       }
     },
@@ -17,7 +14,7 @@
         const index = this.getProductIndex();
 
         const updatedBasket = this.basket.slice(0);
-        updatedBasket[index].quantity = this.form.quantity;
+        updatedBasket[index].quantity = this.basketProductToEdit.quantity;
         updatedBasket[index].price = this.price;
         
         this.$store.dispatch('updateBasket', updatedBasket);
@@ -35,7 +32,7 @@
         return this.$store.state.basketProductToEdit;
       },
       price(){
-        return (this.basketProductToEdit.unitPrice * this.form.quantity).toFixed(2);
+        return (this.basketProductToEdit.unitPrice * this.basketProductToEdit.quantity).toFixed(2);
       }
     }
   }
