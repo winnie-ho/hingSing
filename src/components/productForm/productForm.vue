@@ -18,7 +18,9 @@
     props: [ 'showAddBtn' ],
     methods: {
       addProduct() {
-        this.$store.dispatch('addProduct', this.form);
+        this.$store.dispatch('addProduct', Object.assign({}, this.form, {
+          unitPrice: parseFloat(this.form.unitPrice)
+        }));
         this.productFormVisible = false;
         setTimeout(this.refreshProductsList, 500);
       },
@@ -26,7 +28,7 @@
         this.form = {
           name: this.product.name,
           unit: this.product.unit,
-          unitPrice: this.product.unitPrice,
+          unitPrice: parseFloat(this.product.unitPrice),
           image: this.product.image
         }
         this.productFormVisible = true;
