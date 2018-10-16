@@ -42,7 +42,10 @@ export default {
     enterOrderView(e){
       this.$store.dispatch('setOrder', e)
       this.$router.push('/orderView/' + e.id)
-    }
+    },
+    filterStatus(value, row) {
+      return row.status === value;
+    },
   },
   computed: {
     orders(){
