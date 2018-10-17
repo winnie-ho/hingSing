@@ -48,8 +48,7 @@
             label="Price (£)">
           </el-table-column>
           <el-table-column
-            fixed="right"
-            width="120">
+            fixed="right">
             <template slot-scope="scope">
               <el-button v-on:click.native.prevent="deleteItem(scope.$index, basket)" icon='el-icon-delete' type='danger' circle size='mini'></el-button>
             </template>

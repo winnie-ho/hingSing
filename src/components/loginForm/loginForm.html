@@ -1,18 +1,18 @@
 <div id='loginForm'>
-  <el-card>
-    <h1 class='form-title'>Login to account</h1>
-    <el-form ref="form" :model="form" label-position='left' label-width='80px'>
-      <el-form-item label='Email' >
+  <el-container class='col'>
+    <h1 class='form-title'>Login to your account</h1>
+    <el-form ref="form" :model="form" label-position='top' align='center'>
+      <el-form-item>
         <el-input v-model="form.email" placeholder='Email' clearable></el-input>
       </el-form-item>
 
-      <el-form-item label='Password'>
-        <el-input v-model="form.address" placeholder="Address" clearable></el-input>
+      <el-form-item>
+        <el-input v-model="form.address" placeholder="Password" clearable type='password'></el-input>
       </el-form-item>
       
       <el-form-item>
         <el-button type="primary" v-on:click="loginUser">Login</el-button>
       </el-form-item>
     </el-form>
-  </el-card>
+  </el-container>
 </div>
