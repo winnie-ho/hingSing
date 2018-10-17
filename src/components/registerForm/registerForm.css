@@ -1,0 +1,16 @@
+#registerForm{
+  display: flex;
+  justify-content: center;
+}
+
+.el-container {
+  max-width: 300px;
+}
+
+.el-form{
+  width: 100%;
+}
+
+.form-title{
+  margin-bottom: 30px;
+}

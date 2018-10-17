@@ -1,0 +1,29 @@
+<div id='registerForm'>
+  <el-container class='col'>
+    <h1 class='form-title'>Sign up with your email address</h1>
+    <el-form ref="form" :model="form" label-position='top' align='center'>
+      <el-form-item>
+        <el-input v-model="form.email" placeholder='Your email' clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.emailConfirm" placeholder='Confirm email' clearable></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-input v-model="form.password" placeholder="New password" clearable type='password'></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-input v-model="form.name" placeholder="Business name" clearable></el-input>
+      </el-form-item>
+      
+      <el-form-item>
+        <el-button type="primary" v-on:click="registerUser">Register</el-button>
+      </el-form-item>
+      <el-form-item>
+        Already have an account?
+        <el-button type='text' v-on:click="showLoginForm">Login</el-button>
+      </el-form-item>
+    </el-form>
+  </el-container>
+</div>

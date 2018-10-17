@@ -5,7 +5,8 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <login-form></login-form>
+      <login-form v-show='isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)'></login-form>
+      <register-form v-show='!isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)'></register-form>
     </el-main>
   </el-container>
 </div>

@@ -17,8 +17,8 @@
       loginUser(){
         console.log('SUBMIT USER LOGIN PROCESS');
       },
-      registerUser(){
-        console.log('REGISTER USER');
+      showRegisterForm(){
+        this.$emit('onSetRegisteredUser', false)
       }
     },
     computed: {

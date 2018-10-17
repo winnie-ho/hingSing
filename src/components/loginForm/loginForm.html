@@ -7,7 +7,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-input v-model="form.address" placeholder="Password" clearable type='password'></el-input>
+        <el-input v-model="form.password" placeholder="Password" clearable type='password'></el-input>
       </el-form-item>
       
       <el-form-item>
@@ -15,7 +15,7 @@
       </el-form-item>
       <el-form-item>
         Don't have an account?
-        <el-button type='text' v-on:click="registerUser">Register</el-button>
+        <el-button type='text' v-on:click="showRegisterForm">Register</el-button>
       </el-form-item>
     </el-form>
   </el-container>
