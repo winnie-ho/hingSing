@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
     setProduct: (state, payload) => (state.product = payload),
     addToBasket: (state, payload) => (state.basket.push(payload)),
     updateBasket: (state, payload) => (state.basket = payload),
-    emptyBasket: (state, payload) => (state.basket = []),
+    emptyBasket: (state) => (state.basket = []),
     setBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload)
   },
   getters: {
