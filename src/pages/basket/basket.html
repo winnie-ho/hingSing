@@ -11,7 +11,7 @@
       <h3>{{ basket.length }} items</h3>
       <h2>£{{ basketValue }}</h2>
       <div class='basket-list'>
-        <el-table :data="basket" style="width: 100%" height='600px' @current-change='setProductToEdit'>
+        <el-table :data="basket" style="width: 100%" height='600px'>
           <el-table-column
             prop="name"
             label="Product"
@@ -26,7 +26,7 @@
             label="Qty"
             width='80'>
             <template slot-scope="scope">
-              <quantity-form></quantity-form>
+              <quantity-form @click.native.prevent="setProduct(scope.$index, basket)"></quantity-form>
             </template>
           </el-table-column>
           <el-table-column

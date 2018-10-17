@@ -29,8 +29,8 @@ export default {
     deleteItem(index, rows) {
       rows.splice(index, 1);
     },
-    setProductToEdit(product){
-      this.$store.dispatch('setBasketProductToEdit', product)
+    setProduct(index){
+      this.$store.dispatch('setBasketProductToEdit', this.basket[index])
     }
   },
   computed: {
