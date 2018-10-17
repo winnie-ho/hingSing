@@ -41,6 +41,7 @@ export default {
         items: this.basket
       };
       this.$store.dispatch('addOrder', order);
+      this.$store.dispatch('emptyBasket');
       this.successMessage();
     },
     successMessage(){
