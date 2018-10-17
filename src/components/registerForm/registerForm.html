@@ -18,6 +18,23 @@
       </el-form-item>
       
       <el-form-item>
+        <el-alert
+          v-show='registerResult.error'
+          :title="errorMessage"
+          type="error"
+          show-icon>
+        </el-alert>
+      </el-form-item>
+      <el-form-item>
+        <el-alert
+          v-show='registerResult.success'
+          title="You have successfully registered."
+          type="success"
+          show-icon>
+        </el-alert>
+      </el-form-item>
+
+      <el-form-item>
         <el-button type="primary" v-on:click="registerUser">Register</el-button>
       </el-form-item>
       <el-form-item>
