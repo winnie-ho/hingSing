@@ -32,6 +32,7 @@
       <el-form-item>
         <el-input v-model="form.lng" type='number' placeholder="Lng" clearable></el-input>
       </el-form-item>
+      <el-form-item>
         <el-button type="primary" v-on:click="addClient" v-show='showAddBtn'>Create</el-button>
         <el-button type="primary" v-on:click="updateClient" v-show='!showAddBtn'>Update</el-button>
         <el-button v-on:click='clientFormVisible=false'>Cancel</el-button>

@@ -4,6 +4,7 @@
 <script>
 import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import loginForm from "../../components/loginForm/loginForm.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -11,6 +12,7 @@ export default {
   components: {
     "nav-menu": navMenu,
     "site-header": siteHeader,
+    "login-form": loginForm
   },
   data() {
     return {
