@@ -15,7 +15,10 @@
     props: [ ],
     methods: {
       loginUser(){
-        console.log('SUBMIT USER LOGIN PROCESS')
+        console.log('SUBMIT USER LOGIN PROCESS');
+      },
+      registerUser(){
+        console.log('REGISTER USER');
       }
     },
     computed: {
