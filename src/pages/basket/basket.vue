@@ -31,6 +31,23 @@ export default {
     },
     setProduct(index){
       this.$store.dispatch('setBasketProductToEdit', this.basket[index])
+    },
+    submitOrder(){
+      const order = {
+        client: 'userName',
+        date: new Date().toLocaleString(),
+        totalValue: parseFloat(this.basketValue).toFixed(2),
+        status: 'open',
+        items: this.basket
+      };
+      this.$store.dispatch('addOrder', order);
+      this.successMessage();
+    },
+    successMessage(){
+      return this.$message({
+        message: 'Order successfully submitted!',
+        type: 'success'
+      });
     }
   },
   computed: {

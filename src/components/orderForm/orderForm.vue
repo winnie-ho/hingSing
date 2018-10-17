@@ -36,7 +36,7 @@
         const orderToAdd = Object.assign({}, this.form, {
           date: new Date().toLocaleString(),
           deliveryDate: new Date(this.form.deliveryDate).toLocaleDateString(),
-          totalValue: this.calculateTotalValue(this.form.items)
+          totalValue: this.calculateTotalValue(this.form.items).toFixed(2)
         });
         this.$store.dispatch('addOrder', orderToAdd);
         this.orderFormVisible = false;
@@ -75,9 +75,9 @@
       addItemToOrder(){
         const fullItemToAdd = this.getProduct(this.itemToAdd.id);
         this.form.items.push({
-          productId: this.itemToAdd.id,
+          id: this.itemToAdd.id,
           quantity: this.itemToAdd.quantity,
-          productName: fullItemToAdd.name,
+          name: fullItemToAdd.name,
           unit: fullItemToAdd.unit,
           unitPrice: fullItemToAdd.unitPrice,
           price: (parseInt(this.itemToAdd.quantity) * parseFloat(fullItemToAdd.unitPrice)).toFixed(2)
