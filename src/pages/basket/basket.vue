@@ -30,7 +30,7 @@ export default {
       rows.splice(index, 1);
     },
     setProductToEdit(product){
-      this.$store.dispatch('updateBasketProductToEdit', product)
+      this.$store.dispatch('setBasketProductToEdit', product)
     }
   },
   computed: {

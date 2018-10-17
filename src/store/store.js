@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
     setProduct: (state, payload) => (state.product = payload),
     addToBasket: (state, payload) => (state.basket.push(payload)),
     updateBasket: (state, payload) => (state.clients = payload),
-    updateBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload)
+    setBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload)
   },
   getters: {
 
@@ -126,8 +126,8 @@ export const store = new Vuex.Store({
     updateBasket: (context, product) => {
       context.commit('updateBasket', product)
     },
-    updateBasketProductToEdit: (context, product) => {
-      context.commit('updateBasketProductToEdit', product)
+    setBasketProductToEdit: (context, product) => {
+      context.commit('setBasketProductToEdit', product)
     }
   }
 })
