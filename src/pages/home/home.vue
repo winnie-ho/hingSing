@@ -27,10 +27,15 @@ export default {
   methods: {
     setRegisteredUser(event){
       this.isRegisteredUser = event;
+    },
+    goToProductsPage(){
+      this.$router.push('/products');
     }
   },
   computed: {
-
+    user(){
+      return this.$store.state.user;
+    }
   }
 };
 </script>

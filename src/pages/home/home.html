@@ -5,8 +5,25 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <login-form v-show='isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)'></login-form>
+      <!-- Need to hide both on successful login -->
+      <login-form v-show='isRegisteredUser && !user' v-on:onSetRegisteredUser='setRegisteredUser($event)'></login-form>
       <register-form v-show='!isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)'></register-form>
+
+
+      <!-- USER DASHBOARD AREA -->
+      <div v-show='user'>
+        <h1>Hi {{ user.user.email }}</h1>
+        <div>
+          Recent orders
+          <!-- Current active orders -->
+          <!-- Recent orders to reorder -->
+          <!-- Or no orders, go shopping -->
+        </div>
+        <div>
+          <el-button type="primary" v-on:click="goToProductsPage">Go shopping</el-button>
+        </div>
+
+      </div>
     </el-main>
   </el-container>
 </div>
