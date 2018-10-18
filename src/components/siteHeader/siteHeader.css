@@ -12,3 +12,8 @@ a{
   height: 80px;
   width: auto;
 }
+
+.sign-out{
+  position: absolute;
+  right: 20px;
+}
