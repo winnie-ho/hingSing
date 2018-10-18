@@ -23,6 +23,7 @@
         .signInWithEmailAndPassword(this.form.email, this.form.password)
         .then((value) => {
           this.loginResult = { success: true, value };
+          this.$store.dispatch('setUser', value )
         })
         .catch((error) => {
           this.loginResult = { success: false, error };

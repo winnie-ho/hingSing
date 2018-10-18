@@ -13,7 +13,8 @@ export const store = new Vuex.Store({
     orders: [],
     products: [],
     basket: [],
-    basketProductToEdit: {}
+    basketProductToEdit: {},
+    user: {}
   },
   mutations: {
     setClients: (state, payload) => (state.clients = payload),
@@ -25,7 +26,8 @@ export const store = new Vuex.Store({
     addToBasket: (state, payload) => (state.basket.push(payload)),
     updateBasket: (state, payload) => (state.basket = payload),
     emptyBasket: (state) => (state.basket = []),
-    setBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload)
+    setBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload),
+    setUser: (state, payload) => (state.user = payload)
   },
   getters: {
 
@@ -132,6 +134,9 @@ export const store = new Vuex.Store({
     },
     setBasketProductToEdit: (context, product) => {
       context.commit('setBasketProductToEdit', product)
+    },
+    setUser: (context, user) => {
+      context.commit('setUser', user)
     }
   }
 })
