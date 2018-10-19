@@ -12,17 +12,16 @@
 
       <!-- USER DASHBOARD AREA -->
       <div v-show='user'>
-        <h1>Hi {{ user.user.email }}</h1>
         <div>
-          Recent orders
-          <!-- Current active orders -->
-          <!-- Recent orders to reorder -->
-          <!-- Or no orders, go shopping -->
+          <h1>Hi</h1>
+          <h3>Recent orders</h3>
+          <h3>You have {{ filteredOrders.length }} orders.</h3>
+          <el-tag type='success'>{{ numOpenOrders }} open</el-tag>
+          <el-tag type='info'>{{ numCompleteOrders }} completed</el-tag>
         </div>
         <div>
-          <el-button type="primary" v-on:click="goToProductsPage">Go shopping</el-button>
+          <el-button type="text" v-on:click="goToProductsPage">Go shopping</el-button>
         </div>
-
       </div>
     </el-main>
   </el-container>

@@ -22,7 +22,7 @@ export default {
     };
   },
   mounted() {
-
+    this.$store.dispatch('fetchOrders');
   },
   methods: {
     setRegisteredUser(event){
@@ -30,11 +30,31 @@ export default {
     },
     goToProductsPage(){
       this.$router.push('/products');
+    },
+    orderType(type){
+      return this.filteredOrders.filter(order => order.status === type);
     }
   },
   computed: {
     user(){
+      if (!this.$store.state.user.user) return;
       return this.$store.state.user;
+    },
+    orders() {
+      return this.$store.state.orders;
+    },
+    filteredOrders(){
+      if (this.user && this.orders ) {
+        return this.orders.filter(order => order.email === this.user.user.email);
+      } else {
+        return [];
+      }
+    },
+    numOpenOrders(){
+      return this.orderType('open').length;
+    },
+    numCompleteOrders(){
+      return this.orderType('complete').length;
     }
   }
 };

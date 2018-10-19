@@ -36,7 +36,8 @@
         const orderToAdd = Object.assign({}, this.form, {
           date: new Date().toLocaleString(),
           deliveryDate: new Date(this.form.deliveryDate).toLocaleDateString(),
-          totalValue: this.calculateTotalValue(this.form.items).toFixed(2)
+          totalValue: this.calculateTotalValue(this.form.items).toFixed(2),
+          email: this.getClientEmail(this.form.client)
         });
         this.$store.dispatch('addOrder', orderToAdd);
         this.orderFormVisible = false;
@@ -45,6 +46,7 @@
       editOrderForm(){
         this.form = {
           client: this.order.client,
+          email: this.getClientEmail(this.order.client),
           status: this.order.status,
           items: this.order.items,
           deliveryDate: this.order.deliveryDate
@@ -94,6 +96,9 @@
       },
       printOrderForm(){
         window.print();
+      },
+      getClientEmail(clientName){
+        return this.clients.find(client => client.name === clientName).email;
       }
     },
     computed: {

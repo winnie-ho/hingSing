@@ -38,7 +38,8 @@ export default {
         date: new Date().toLocaleString(),
         totalValue: parseFloat(this.basketValue).toFixed(2),
         status: 'open',
-        items: this.basket
+        items: this.basket,
+        email: this.user.email
       };
       this.$store.dispatch('addOrder', order);
       this.$store.dispatch('emptyBasket');
@@ -60,6 +61,9 @@ export default {
         return total + parseFloat(item.price);
       }, 0);
       return totalValue.toFixed(2);
+    },
+    user(){
+      return this.$store.state.user.user;
     }
   }
 };
