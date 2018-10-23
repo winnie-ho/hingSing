@@ -31,6 +31,9 @@ export default {
     goToProductsPage(){
       this.$router.push('/products');
     },
+    goToOrdersPage(){
+      this.$router.push('/orders');
+    },
     orderType(type){
       return this.filteredOrders.filter(order => order.status === type);
     }
