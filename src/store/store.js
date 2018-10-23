@@ -19,7 +19,13 @@ export const store = new Vuex.Store({
   },
   mutations: {
     setClients: (state, payload) => (state.clients = payload),
-    setOrders: (state, payload) => (state.orders = payload),
+    setOrders: (state, payload) => {
+      if (state.isAdmin) {
+        state.orders = payload
+      } else {
+        state.orders = payload.filter(order => order.email === state.client.email)
+      }
+    },
     setProducts: (state, payload) => (state.products = payload),
     setClient: (state, payload) => (state.client = payload),
     setOrder: (state, payload) => (state.order = payload),
