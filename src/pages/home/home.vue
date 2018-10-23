@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     user(){
-      if (!this.$store.state.user.user) return;
+      if (!this.$store.state.user || !this.$store.state.user.user) return;
       return this.$store.state.user;
     },
     orders() {
