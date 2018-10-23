@@ -18,9 +18,10 @@
         .auth()
         .signOut()
         .then((value) => {
+          this.$store.dispatch('setClient', {});
+          this.$store.dispatch('clearIsAdmin');
           this.signOutResult = { success: true, value };
           this.$store.dispatch('setUser', value );
-          this.$store.dispatch('setClient', {});
         })
         .catch((error) => {
           this.signOutResult = { success: false, error };

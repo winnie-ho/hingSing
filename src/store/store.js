@@ -14,7 +14,8 @@ export const store = new Vuex.Store({
     products: [],
     basket: [],
     basketProductToEdit: {},
-    user: {}
+    user: {},
+    isAdmin: false
   },
   mutations: {
     setClients: (state, payload) => (state.clients = payload),
@@ -27,7 +28,8 @@ export const store = new Vuex.Store({
     updateBasket: (state, payload) => (state.basket = payload),
     emptyBasket: (state) => (state.basket = []),
     setBasketProductToEdit: (state, payload) => (state.basketProductToEdit = payload),
-    setUser: (state, payload) => (state.user = payload)
+    setUser: (state, payload) => (state.user = payload),
+    setIsAdmin: (state, payload) => (state.isAdmin = payload)
   },
   getters: {
 
@@ -137,6 +139,11 @@ export const store = new Vuex.Store({
     },
     setUser: (context, user) => {
       context.commit('setUser', user)
+      const isAdmin = user.user.email === 'winobean@hotmail.co.uk' || user.user.email === 'admin@email.com'
+      context.commit('setIsAdmin', isAdmin)
+    },
+    clearIsAdmin: (context) => {
+      context.commit('setIsAdmin', false)
     }
   }
 })
