@@ -21,7 +21,7 @@
       </el-menu-item>
     </router-link>
     
-    <router-link to="/clients" exact>
+    <router-link to="/clients" exact v-show='isAdmin'>
       <el-menu-item index="4">
         <i class="el-icon-news"></i>
         <span slot="title">Clients</span>
