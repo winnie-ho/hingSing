@@ -33,22 +33,27 @@ export default {
       this.$store.dispatch('setBasketProductToEdit', this.basket[index])
     },
     submitOrder(){
-      const order = {
-        client: this.client.name,
-        date: new Date().toLocaleString(),
-        totalValue: parseFloat(this.basketValue).toFixed(2),
-        status: 'open',
-        items: this.basket,
-        email: this.user.email
-      };
-      this.$store.dispatch('addOrder', order);
-      this.$store.dispatch('emptyBasket');
-      this.successMessage();
+      if (!this.user || !this.client) {
+        this.$router.push('/');
+        this.message('Please login or register to complete your order', 'warning')
+      } else {
+        const order = {
+          client: this.client.name,
+          date: new Date().toLocaleString(),
+          totalValue: parseFloat(this.basketValue).toFixed(2),
+          status: 'open',
+          items: this.basket,
+          email: this.user.email
+        };
+        this.$store.dispatch('addOrder', order);
+        this.$store.dispatch('emptyBasket');
+        this.message('Order successfully submitted!', 'success');
+      }
     },
-    successMessage(){
+    message(message, type){
       return this.$message({
-        message: 'Order successfully submitted!',
-        type: 'success'
+        message,
+        type
       });
     }
   },
@@ -63,6 +68,7 @@ export default {
       return totalValue.toFixed(2);
     },
     user(){
+      if (!this.$store.state.user) return;
       return this.$store.state.user.user;
     },
     client(){
