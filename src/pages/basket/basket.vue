@@ -34,7 +34,7 @@ export default {
     },
     submitOrder(){
       const order = {
-        client: 'userName',
+        client: this.client.name,
         date: new Date().toLocaleString(),
         totalValue: parseFloat(this.basketValue).toFixed(2),
         status: 'open',
@@ -64,6 +64,9 @@ export default {
     },
     user(){
       return this.$store.state.user.user;
+    },
+    client(){
+      return this.$store.state.client;
     }
   }
 };
