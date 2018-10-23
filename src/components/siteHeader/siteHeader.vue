@@ -29,6 +29,7 @@
     },
     computed: {
       user(){
+        if (!this.$store.state.user) return;
         return this.$store.state.user.user;
       }
     }
