@@ -9,7 +9,7 @@
       <breadcrumb-bar v-bind:breadcrumbContent='breadcrumbContent'></breadcrumb-bar>
       <div class='row sb'>
         <h1>{{ orders.length }} Orders</h1>
-        <order-form v-bind:showAddBtn='true'></order-form>
+        <order-form v-show='isAdmin' v-bind:showAddBtn='true'></order-form>
       </div>
 
       <el-tag type="success"> {{ numOpenOrders }} Open</el-tag>

@@ -56,6 +56,9 @@ export default {
     },
     numCompleteOrders(){
       return this.orders.reduce((total, order) => total + (order.status === 'complete'), 0)
+    },
+    isAdmin(){
+      return this.$store.state.isAdmin;
     }
   }
 };
