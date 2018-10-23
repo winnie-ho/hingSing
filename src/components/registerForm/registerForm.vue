@@ -27,6 +27,7 @@
           this.registerResult = { success: true, value };
           this.$store.dispatch('setUser', value );
           this.$emit('onSetRegisteredUser', true);
+          this.$emit('changeDisplayProfileForm', true);
         })
         .catch((error) => {
           this.registerResult = { success: false, error };

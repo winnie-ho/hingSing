@@ -12,12 +12,25 @@
           city: '',
           postcode: '',
           phone: '',
-          email: ''
+          email: this.userEmail
         }
       }
     },
     props: [ 'hasProfileSetup' ],
     methods: {
+      addClient() {
+        const newClient = Object.assign({}, this.form, {
+          email: this.user.email,
+          lat: 0,
+          lng: 0
+        });
+        this.$store.dispatch('addClient', newClient);
+        this.$store.dispatch('setClient', newClient);
+
+        this.$emit('changeDisplayProfileForm', false);
+        this.$emit('changeHasProfileSetup', true);
+        setTimeout(this.refreshClientsList, 500);
+      },
       editProfileForm(){
         this.form = {
           name: this.client.name,
@@ -25,9 +38,7 @@
           city: this.client.city,
           postcode: this.client.postcode,
           phone: this.client.phone,
-          email: this.user.email
         }
-        this.profileFormVisible = true;
       },
       updateClient(){
         const updatedClient = Object.assign({}, this.form, {
@@ -54,7 +65,7 @@
       },
       formTitle(){
         return this.hasProfileSetup ? "Update profile" : "Complete your profile";
-      },
+      }
     }
   }
 </script>

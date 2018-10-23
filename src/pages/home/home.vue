@@ -22,7 +22,7 @@ export default {
     return {
       isRegisteredUser: true,
       hasProfileSetup: false,
-      displayProfileForm: true
+      displayProfileForm: false
     };
   },
   mounted() {
@@ -41,8 +41,8 @@ export default {
     orderType(type){
       return this.filteredOrders.filter(order => order.status === type);
     },
-    setHasProfileSetup(){
-      this.hasProfileSetup = true;
+    setHasProfileSetup(event){
+      this.hasProfileSetup = event;
     },
     setDisplayProfileForm(event){
       this.displayProfileForm = event;
@@ -52,6 +52,9 @@ export default {
     user(){
       if (!this.$store.state.user || !this.$store.state.user.user) return;
       return this.$store.state.user;
+    },
+    client(){
+      return this.$store.state.client;
     },
     orders() {
       return this.$store.state.orders;
