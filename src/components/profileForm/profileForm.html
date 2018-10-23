@@ -1,0 +1,32 @@
+<div id='profileForm'>
+
+  <el-button v-show='profileFormVisible' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
+
+  <el-dialog v-bind:title='formTitle' :visible.sync="profileFormVisible" width="90%">
+    <el-form ref="form" :model="form">
+      <el-form-item>
+        <el-input v-model="form.name" placeholder='Business name' clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.address" placeholder="Address" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.city" placeholder="City" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.postcode" placeholder="Postcode" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.phone" placeholder="Phone" clearable></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-input v-model="form.email" placeholder="Email" clearable></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" v-on:click="updateClient">Update</el-button>
+        <el-button v-on:click='profileFormVisible=false'>Cancel</el-button>
+      </el-form-item>
+    </el-form>
+  </el-dialog>
+</div>

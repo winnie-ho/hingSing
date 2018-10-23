@@ -25,6 +25,7 @@
         .createUserWithEmailAndPassword(this.form.email, this.form.password)
         .then((value) => {
           this.registerResult = { success: true, value };
+          this.$emit('showProfileForm');
         })
         .catch((error) => {
           this.registerResult = { success: false, error };

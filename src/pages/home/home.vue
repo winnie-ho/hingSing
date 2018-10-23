@@ -6,6 +6,7 @@ import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import loginForm from "../../components/loginForm/loginForm.vue";
 import registerForm from "../../components/registerForm/registerForm.vue";
+import profileForm from "../../components/profileForm/profileForm.vue";
 import { store } from '../../store/store.js'
 
 export default {
@@ -14,11 +15,13 @@ export default {
     "nav-menu": navMenu,
     "site-header": siteHeader,
     "login-form": loginForm,
-    "register-form": registerForm
+    "register-form": registerForm,
+    "profile-form": profileForm
   },
   data() {
     return {
-      isRegisteredUser: true
+      isRegisteredUser: true,
+      profileFormVisible: false
     };
   },
   mounted() {
@@ -36,6 +39,9 @@ export default {
     },
     orderType(type){
       return this.filteredOrders.filter(order => order.status === type);
+    },
+    setShowProfileForm(){
+      this.profileFormVisible = true;
     }
   },
   computed: {

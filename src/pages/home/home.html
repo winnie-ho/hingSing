@@ -5,16 +5,21 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
+      <div class='row sb'>
+        <div>
+          <h1>Hi</h1>
+          <h3>You have {{ filteredOrders.length }} orders.</h3>
+        </div>
+        <profile-form v-bind:profileFormVisible='profileFormVisible'></profile-form>
+      </div>
       <!-- Need to hide both on successful login -->
       <login-form v-show='isRegisteredUser && !user' v-on:onSetRegisteredUser='setRegisteredUser($event)'></login-form>
-      <register-form v-show='!isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)'></register-form>
+      <register-form v-show='!isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)' v-on:showProfileForm='setShowProfileForm'></register-form>
 
 
       <!-- USER DASHBOARD AREA -->
       <div v-show='user'>
         <div>
-          <h1>Hi</h1>
-          <h3>You have {{ filteredOrders.length }} orders.</h3>
           <el-tag type='success'>{{ numOpenOrders }} open</el-tag>
           <el-tag type='info'>{{ numCompleteOrders }} completed</el-tag>
         </div>
