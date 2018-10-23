@@ -7,7 +7,7 @@
     <el-main>
       <div class='row sb'>
         <h1>{{ products.length }} Products</h1>
-        <product-form v-bind:showAddBtn='true'></product-form>
+        <product-form v-show='isAdmin' v-bind:showAddBtn='true'></product-form>
       </div>
       <div class='product-list'>
         <product-card v-for='product in products' v-bind:key='product.name' v-bind:product='product'>{{ product.name }}</product-card>

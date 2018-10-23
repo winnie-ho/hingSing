@@ -29,6 +29,9 @@ export default {
   computed: {
     products(){
       return this.$store.state.products;
+    },
+    isAdmin(){
+      return this.$store.state.isAdmin;
     }
   }
 };
