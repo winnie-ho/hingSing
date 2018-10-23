@@ -1,9 +1,9 @@
-<div id='profileForm'>
+<div id='profileForm' class='col'>
 
-  <el-button v-show='profileFormVisible' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
+  <el-button v-show='hasProfileSetup' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
 
-  <el-dialog v-bind:title='formTitle' :visible.sync="profileFormVisible" width="90%">
     <el-form ref="form" :model="form">
+      <h1>{{ formTitle }}</h1>
       <el-form-item>
         <el-input v-model="form.name" placeholder='Business name' clearable></el-input>
       </el-form-item>
@@ -28,5 +28,4 @@
         <el-button v-on:click='profileFormVisible=false'>Cancel</el-button>
       </el-form-item>
     </el-form>
-  </el-dialog>
 </div>

@@ -16,7 +16,7 @@
         }
       }
     },
-    props: [ 'profileFormVisible' ],
+    props: [ 'hasProfileSetup' ],
     methods: {
       editProfileForm(){
         this.form = {
@@ -35,6 +35,8 @@
         });
         this.$store.dispatch('updateClient', updatedClient);
         setTimeout(this.refreshClientsList, 500);
+        this.$emit('changeHasProfileSetup');
+        this.$emit('changeDisplayProfileForm', false);
       },
       async refreshClientsList(){
         await this.$store.dispatch('fetchClients');
@@ -51,7 +53,7 @@
         return window.innerWidth < 500;
       },
       formTitle(){
-        return this.notRegisteredUser ? "Set up profile" : "Update profile";
+        return this.hasProfileSetup ? "Update profile" : "Complete your profile";
       },
     }
   }

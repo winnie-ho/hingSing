@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       isRegisteredUser: true,
-      profileFormVisible: false
+      hasProfileSetup: false,
+      displayProfileForm: true
     };
   },
   mounted() {
@@ -40,8 +41,11 @@ export default {
     orderType(type){
       return this.filteredOrders.filter(order => order.status === type);
     },
-    setShowProfileForm(){
-      this.profileFormVisible = true;
+    setHasProfileSetup(){
+      this.hasProfileSetup = true;
+    },
+    setDisplayProfileForm(event){
+      this.displayProfileForm = event;
     }
   },
   computed: {
