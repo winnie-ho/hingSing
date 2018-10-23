@@ -25,9 +25,6 @@ export default {
       displayProfileForm: false
     };
   },
-  mounted() {
-    this.$store.dispatch('fetchOrders');
-  },
   methods: {
     setRegisteredUser(event){
       this.isRegisteredUser = event;
@@ -39,7 +36,7 @@ export default {
       this.$router.push('/orders');
     },
     orderType(type){
-      return this.filteredOrders.filter(order => order.status === type);
+      return this.orders.filter(order => order.status === type);
     },
     setHasProfileSetup(event){
       this.hasProfileSetup = event;
@@ -59,18 +56,14 @@ export default {
     orders() {
       return this.$store.state.orders;
     },
-    filteredOrders(){
-      if (this.user && this.orders ) {
-        return this.orders.filter(order => order.email === this.user.user.email);
-      } else {
-        return [];
-      }
-    },
     numOpenOrders(){
       return this.orderType('open').length;
     },
     numCompleteOrders(){
       return this.orderType('complete').length;
+    },
+    isAdmin(){
+      return this.$store.state.isAdmin;
     }
   }
 };

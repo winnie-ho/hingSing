@@ -27,6 +27,7 @@
         .then((value) => {
           this.loginResult = { success: true, value };
           this.$store.dispatch('setUser', value );
+          this.$store.dispatch('fetchOrders');
           this.setUserClient();
         })
         .catch((error) => {

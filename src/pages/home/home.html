@@ -10,7 +10,8 @@
           <!-- USER DASHBOARD AREA -->
           <div>
             <h1>Hi {{ client.name }}</h1>
-            <h3>You have {{ filteredOrders.length }} orders.</h3>
+            <el-tag v-show='isAdmin' type='warning'>Admin</el-tag>
+            <h3>You have {{ orders.length }} orders.</h3>
           </div>
         </div>
         <div>
