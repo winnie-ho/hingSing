@@ -1,31 +1,29 @@
 <div id='profileForm' class='col'>
+  <el-button v-show='hasProfileSetup && user' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
+  <el-form v-show='displayProfileForm' ref="form" :model="form">
+    <el-form-item>
+      <h1>{{ formTitle }}</h1>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.name" placeholder='Business name' clearable></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.address" placeholder="Address" clearable></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.city" placeholder="City" clearable></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.postcode" placeholder="Postcode" clearable></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.phone" placeholder="Phone" clearable></el-input>
+    </el-form-item>
 
-  <el-button v-show='hasProfileSetup' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
-
-    <el-form ref="form" :model="form">
-      <el-form-item>
-        <h1>{{ formTitle }}</h1>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.name" placeholder='Business name' clearable></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.address" placeholder="Address" clearable></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.city" placeholder="City" clearable></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.postcode" placeholder="Postcode" clearable></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.phone" placeholder="Phone" clearable></el-input>
-      </el-form-item>
-
-      <el-form-item>
-        <el-button type="primary" v-on:click="addClient" v-show='!hasProfileSetup'>Setup</el-button>
-        <el-button type="primary" v-on:click="updateClient" v-show='hasProfileSetup'>Update</el-button>
-        <el-button v-on:click='profileFormVisible=false'>Cancel</el-button>
-      </el-form-item>
-    </el-form>
+    <el-form-item>
+      <el-button type="primary" v-on:click="addClient" v-show='!hasProfileSetup'>Setup</el-button>
+      <el-button type="primary" v-on:click="updateClient" v-show='hasProfileSetup'>Update</el-button>
+      <el-button v-on:click='cancelProfileForm'>Cancel</el-button>
+    </el-form-item>
+  </el-form>
 </div>

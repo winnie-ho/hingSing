@@ -16,7 +16,7 @@
         }
       }
     },
-    props: [ 'hasProfileSetup' ],
+    props: [ 'hasProfileSetup', 'displayProfileForm' ],
     methods: {
       addClient() {
         const newClient = Object.assign({}, this.form, {
@@ -32,12 +32,13 @@
         setTimeout(this.refreshClientsList, 500);
       },
       editProfileForm(){
+        this.$emit('changeDisplayProfileForm', true);
         this.form = {
           name: this.client.name,
           address: this.client.address,
           city: this.client.city,
           postcode: this.client.postcode,
-          phone: this.client.phone,
+          phone: this.client.phone
         }
       },
       updateClient(){
@@ -46,11 +47,14 @@
         });
         this.$store.dispatch('updateClient', updatedClient);
         setTimeout(this.refreshClientsList, 500);
-        this.$emit('changeHasProfileSetup');
+        this.$emit('changeHasProfileSetup', true);
         this.$emit('changeDisplayProfileForm', false);
       },
       async refreshClientsList(){
         await this.$store.dispatch('fetchClients');
+      },
+      cancelProfileForm(){
+        this.$emit('changeDisplayProfileForm', false);
       }
     },
     computed: {
@@ -58,12 +62,14 @@
         return this.$store.state.client;
       },
       user(){
+        if (!this.$store.state.user) return;
         return this.$store.state.user.user;
       },
       isCollapsed() {
         return window.innerWidth < 500;
       },
       formTitle(){
+        console.log('hasProfileSetup', this.hasProfileSetup)
         return this.hasProfileSetup ? "Update profile" : "Complete your profile";
       }
     }

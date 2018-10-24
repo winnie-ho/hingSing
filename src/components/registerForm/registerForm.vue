@@ -24,10 +24,11 @@
         .auth()
         .createUserWithEmailAndPassword(this.form.email, this.form.password)
         .then((value) => {
-          this.registerResult = { success: true, value };
-          this.$store.dispatch('setUser', value );
           this.$emit('onSetRegisteredUser', true);
           this.$emit('changeDisplayProfileForm', true);
+          this.$emit('changeHasProfileSetup', false);
+          this.registerResult = { success: true, value };
+          this.$store.dispatch('setUser', value );
         })
         .catch((error) => {
           this.registerResult = { success: false, error };

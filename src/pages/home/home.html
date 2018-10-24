@@ -5,11 +5,12 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <div v-show='user && client.name'>
+      <el-button type="primary" v-on:click="getStatus">Status</el-button>
+      <div v-show='user && hasProfileSetup'>
         <div class='row sb'>
           <!-- USER DASHBOARD AREA -->
           <div>
-            <h1>Hi {{ client.name }}</h1>
+            <h1>Hi</h1>
             <el-tag v-show='isAdmin' type='warning'>Admin</el-tag>
             <h3>You have {{ orders.length }} orders.</h3>
           </div>
@@ -20,14 +21,30 @@
         </div>
         <div>
           <el-button type="primary" v-on:click="goToOrdersPage">View my orders</el-button>
-          <el-button type="primary" v-on:click="goToProductsPage">Go shopping</el-button>
+          <el-button type="text" v-on:click="goToProductsPage">Go shopping</el-button>
         </div>
       </div>
-      <!-- Need to hide both on successful login -->
-      <login-form v-show='isRegisteredUser && !user' v-on:onSetRegisteredUser='setRegisteredUser($event)'></login-form>
-      <register-form v-show='!isRegisteredUser' v-on:onSetRegisteredUser='setRegisteredUser($event)' v-on:changeDisplayProfileForm='setDisplayProfileForm($event)' v-on:changeHasProfileSetup='setHasProfileSetup($event)'></register-form>
-      <profile-form v-show='isRegisteredUser && user && displayProfileForm' v:bind:hasProfileSetup='hasProfileSetup' v-on:changeHasProfileSetup='setHasProfileSetup($event)' v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'></profile-form>
 
+      <!-- Need to hide both on successful login -->
+      <login-form 
+        v-show='isRegisteredUser && !user' 
+        v-on:onSetRegisteredUser='setRegisteredUser($event)' 
+        v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
+        v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
+      </login-form>
+      <register-form 
+        v-show='!isRegisteredUser' 
+        v-on:onSetRegisteredUser='setRegisteredUser($event)' 
+        v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
+        v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
+      </register-form>
+
+      <profile-form 
+        v-bind:hasProfileSetup='hasProfileSetup' 
+        v-bind:displayProfileForm='displayProfileForm' 
+        v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
+        v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
+      </profile-form>
 
     </el-main>
   </el-container>

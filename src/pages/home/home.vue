@@ -18,14 +18,25 @@ export default {
     "register-form": registerForm,
     "profile-form": profileForm
   },
+  mounted(){
+    this.isProfileSetupCheck();
+  },
   data() {
     return {
       isRegisteredUser: true,
-      hasProfileSetup: false,
+      hasProfileSetup: true,
       displayProfileForm: false
     };
   },
   methods: {
+    isProfileSetupCheck(){
+      console.log('checking')
+      if (!this.client || !this.client.name) {
+        this.hasProfileSetup = false;
+      } else {
+        this.hasProfileSetup = true;
+      }
+    },
     setRegisteredUser(event){
       this.isRegisteredUser = event;
     },
@@ -43,6 +54,14 @@ export default {
     },
     setDisplayProfileForm(event){
       this.displayProfileForm = event;
+    },
+    getStatus(){
+      console.log('isRegisteredUser', this.isRegisteredUser);
+      console.log('hasProfileSetup', this.hasProfileSetup);
+      console.log('displayProfileForm', this.displayProfileForm);
+    },
+    editProfileForm(){
+      this.displayProfileForm = true;
     }
   },
   computed: {
@@ -51,6 +70,7 @@ export default {
       return this.$store.state.user;
     },
     client(){
+      if (!this.$store.state.client);
       return this.$store.state.client;
     },
     orders() {

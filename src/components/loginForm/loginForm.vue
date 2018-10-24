@@ -28,6 +28,8 @@
           this.loginResult = { success: true, value };
           this.$store.dispatch('setUser', value );
           this.$store.dispatch('fetchOrders');
+          this.$emit('changeDisplayProfileForm', false);
+          this.$emit('changeHasProfileSetup', true);
           this.setUserClient();
         })
         .catch((error) => {
