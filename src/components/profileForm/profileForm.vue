@@ -11,8 +11,7 @@
           address: '',
           city: '',
           postcode: '',
-          phone: '',
-          email: this.userEmail
+          phone: ''
         }
       }
     },
@@ -43,10 +42,12 @@
       },
       updateClient(){
         const updatedClient = Object.assign({}, this.form, {
-          id: this.client.id
+          id: this.client.id,
+          email: this.client.email
         });
         this.$store.dispatch('updateClient', updatedClient);
         setTimeout(this.refreshClientsList, 500);
+        this.$store.dispatch('setClient', updatedClient);
         this.$emit('changeHasProfileSetup', true);
         this.$emit('changeDisplayProfileForm', false);
       },
