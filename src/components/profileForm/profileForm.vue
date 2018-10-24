@@ -69,8 +69,10 @@
         return window.innerWidth < 500;
       },
       formTitle(){
-        console.log('hasProfileSetup', this.hasProfileSetup)
         return this.hasProfileSetup ? "Update profile" : "Complete your profile";
+      },
+      isCollapsed() {
+        return window.innerWidth < 500;
       }
     }
   }
