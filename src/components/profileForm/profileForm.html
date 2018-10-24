@@ -22,6 +22,9 @@
     <el-form-item>
       <el-input v-model="form.phone" placeholder="Phone" clearable></el-input>
     </el-form-item>
+    <el-form-item>
+      <el-input v-model="form.email" placeholder="Email" clearable></el-input>
+    </el-form-item>
 
     <el-form-item>
       <el-button type="primary" v-on:click="addClient" v-show='!hasProfileSetup'>Setup</el-button>

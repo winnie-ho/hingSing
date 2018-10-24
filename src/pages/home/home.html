@@ -5,7 +5,7 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <div v-show='user && hasProfileSetup && !displayProfileForm'>
+      <div v-show='user && hasProfileSetup && isRegisteredUser && !displayProfileForm'>
         <div class='row sb'>
           <!-- USER DASHBOARD AREA -->
           <div>

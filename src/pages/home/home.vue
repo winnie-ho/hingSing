@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     isProfileSetupCheck(){
-      this.hasProfileSetup = this.client.name;
+      this.hasProfileSetup = !!this.client.name;
     },
     setRegisteredUser(event){
       this.isRegisteredUser = event;

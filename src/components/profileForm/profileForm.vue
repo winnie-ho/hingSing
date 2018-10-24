@@ -11,7 +11,8 @@
           address: '',
           city: '',
           postcode: '',
-          phone: ''
+          phone: '',
+          email: ''
         }
       }
     },
@@ -37,25 +38,37 @@
           address: this.client.address,
           city: this.client.city,
           postcode: this.client.postcode,
-          phone: this.client.phone
+          phone: this.client.phone,
+          email: this.client.email
         }
       },
       updateClient(){
         const updatedClient = Object.assign({}, this.form, {
           id: this.client.id,
-          email: this.client.email
+          email: this.form.email
         });
         this.$store.dispatch('updateClient', updatedClient);
         setTimeout(this.refreshClientsList, 500);
         this.$store.dispatch('setClient', updatedClient);
         this.$emit('changeHasProfileSetup', true);
         this.$emit('changeDisplayProfileForm', false);
+        this.updateUserEmail(this.form.email);
       },
       async refreshClientsList(){
         await this.$store.dispatch('fetchClients');
       },
       cancelProfileForm(){
         this.$emit('changeDisplayProfileForm', false);
+      },
+      updateUserEmail(email) {
+        const user = firebase.auth().currentUser;
+        const updatedUser = { user };
+        user.updateEmail(email)
+        .then(() => {
+          this.$store.dispatch('setUser', updatedUser );
+        })
+        .catch((error) => {
+        })
       }
     },
     computed: {
