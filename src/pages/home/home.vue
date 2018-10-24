@@ -55,11 +55,6 @@ export default {
     setDisplayProfileForm(event){
       this.displayProfileForm = event;
     },
-    getStatus(){
-      console.log('isRegisteredUser', this.isRegisteredUser);
-      console.log('hasProfileSetup', this.hasProfileSetup);
-      console.log('displayProfileForm', this.displayProfileForm);
-    },
     editProfileForm(){
       this.displayProfileForm = true;
     }

@@ -5,7 +5,6 @@
       <nav-menu></nav-menu>
     </el-aside>
     <el-main>
-      <el-button type="primary" v-on:click="getStatus">Status</el-button>
       <div v-show='user && hasProfileSetup'>
         <div class='row sb'>
           <!-- USER DASHBOARD AREA -->
@@ -24,8 +23,14 @@
           <el-button type="text" v-on:click="goToProductsPage">Go shopping</el-button>
         </div>
       </div>
-
+      
       <!-- Need to hide both on successful login -->
+      <profile-form 
+        v-bind:hasProfileSetup='hasProfileSetup' 
+        v-bind:displayProfileForm='displayProfileForm' 
+        v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
+        v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
+      </profile-form>
       <login-form 
         v-show='isRegisteredUser && !user' 
         v-on:onSetRegisteredUser='setRegisteredUser($event)' 
@@ -38,14 +43,6 @@
         v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
         v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
       </register-form>
-
-      <profile-form 
-        v-bind:hasProfileSetup='hasProfileSetup' 
-        v-bind:displayProfileForm='displayProfileForm' 
-        v-on:changeHasProfileSetup='setHasProfileSetup($event)' 
-        v-on:changeDisplayProfileForm='setDisplayProfileForm($event)'>
-      </profile-form>
-
     </el-main>
   </el-container>
 </div>

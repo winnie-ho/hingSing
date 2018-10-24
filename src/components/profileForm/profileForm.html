@@ -1,5 +1,5 @@
 <div id='profileForm' class='col'>
-  <el-button v-show='hasProfileSetup && user' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
+  <el-button class='profile-button' v-show='hasProfileSetup && user' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
   <el-form v-show='displayProfileForm' ref="form" :model="form">
     <el-form-item>
       <h1>{{ formTitle }}</h1>
