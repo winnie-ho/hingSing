@@ -20,6 +20,7 @@ export default {
   },
   mounted(){
     this.isProfileSetupCheck();
+    this.$store.dispatch('fetchOrders');
   },
   data() {
     return {
@@ -30,12 +31,7 @@ export default {
   },
   methods: {
     isProfileSetupCheck(){
-      console.log('checking')
-      if (!this.client || !this.client.name) {
-        this.hasProfileSetup = false;
-      } else {
-        this.hasProfileSetup = true;
-      }
+      this.hasProfileSetup = this.client.name;
     },
     setRegisteredUser(event){
       this.isRegisteredUser = event;
