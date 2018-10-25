@@ -1,7 +1,7 @@
 <div id='profileForm'>
 
   <el-button class='profile-button' v-show='hasProfileSetup && user && !displayProfileForm && !isCollapsed' type="primary" icon="el-icon-edit" v-on:click='editProfileForm'>Edit profile</el-button>
-  <el-button class='profile-button' v-show='hasProfileSetup && user && !displayProfileForm && isCollapsed' type="primary" icon="el-icon-edit" v-on:click='editProfileForm' ciricle></el-button>
+  <el-button class='profile-button' v-show='hasProfileSetup && user && !displayProfileForm && isCollapsed' type="primary" icon="el-icon-edit" v-on:click='editProfileForm' circle size='small'></el-button>
 
   <el-form v-show='displayProfileForm' ref="form" :model="form">
     <el-form-item>

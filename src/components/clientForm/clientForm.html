@@ -1,9 +1,9 @@
 <div id='clientForm'>
     <el-button type='primary' icon='el-icon-plus' v-on:click='clientFormVisible=true' v-show='showAddBtn && !isCollapsed'>New client</el-button>
-    <el-button type='primary' icon='el-icon-plus' v-on:click='clientFormVisible=true' v-show='showAddBtn && isCollapsed' :circle='isCollapsed'></el-button>
+    <el-button type='primary' icon='el-icon-plus' v-on:click='clientFormVisible=true' v-show='showAddBtn && isCollapsed' :circle='isCollapsed' size='small'></el-button>
   <el-button-group v-show='!showAddBtn'>
-    <el-button type="primary" icon="el-icon-edit" v-on:click='editClientForm'></el-button>
-    <el-button type="primary" icon="el-icon-delete" v-on:click='deleteClient'></el-button>
+    <el-button type="primary" icon="el-icon-edit" v-on:click='editClientForm' size='small'></el-button>
+    <el-button type="primary" icon="el-icon-delete" v-on:click='deleteClient' size='small'></el-button>
   </el-button-group>
 
   <el-dialog v-bind:title='formTitle' :visible.sync="clientFormVisible" width="90%">
