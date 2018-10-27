@@ -70,6 +70,9 @@
       },
       isCollapsed() {
         return window.innerWidth < 500;
+      },
+      isAdmin(){
+        return this.$store.state.isAdmin;
       }
     }
   }

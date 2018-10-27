@@ -29,13 +29,14 @@
             sortable>
           </el-table-column>
           <el-table-column
-          prop="status"
-          label="Status"
-          sortable
-          align='center'
-          v-bind:filters="[{ text: 'Complete', value: 'complete' }, { text: 'Open', value: 'open' }]" 
-          v-bind:filter-method="filterStatus" 
-          filter-placement="bottom-end">
+            prop="status"
+            label="Status"
+            sortable
+            align='center'
+            width='90'
+            v-bind:filters="[{ text: 'Complete', value: 'complete' }, { text: 'Open', value: 'open' }]" 
+            v-bind:filter-method="filterStatus" 
+            filter-placement="bottom-end">
           <template slot-scope="scope">
             <el-tag 
               :type="scope.row.status === 'complete' ? 'info' : 'success'" 
@@ -44,7 +45,8 @@
           </template>
         </el-table-column>
         <el-table-column
-          type='expand'>
+          type='expand'
+          width='30'>
           <template slot-scope="props">
             <p>Delivery Date: {{ props.row.deliveryDate }}</p>
             <p>Size: {{ props.row.items.length }}</p>

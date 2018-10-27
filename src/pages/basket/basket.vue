@@ -73,6 +73,9 @@ export default {
     },
     client(){
       return this.$store.state.client;
+    },
+    isCollapsed() {
+      return window.innerWidth < 500;
     }
   }
 };

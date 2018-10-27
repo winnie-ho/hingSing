@@ -13,42 +13,43 @@
           <h3>{{ basket.length }} items</h3>
           <h2>£{{ basketValue }}</h2>
         </div>
-        <el-button v-on:click='submitOrder' type='primary'>Submit order</el-button>
+        <el-button v-on:click='submitOrder' type='primary' v-show='!isCollapsed'>Submit order</el-button>
+        <el-button v-on:click='submitOrder' type='primary' v-show='isCollapsed' size='mini'>Submit order</el-button>
       </div>
 
       <div class='basket-list'>
         <el-table :data="basket" style="width: 100%" height='600px'>
           <el-table-column
-            prop="name"
-            label="Product"
-            fit>
+            label='Product'
+            prop="name">
+          </el-table-column>
+          <el-table-column
+            type='expand'
+            width='15'>
+            <template slot-scope="props">
+              <p>Unit: {{ props.row.unit }}</p>
+              <p>Unit Price: £{{ props.row.unitPrice }}</p>
+            </template>
           </el-table-column>
           <el-table-column
             prop="quantity"
-            width='50'
+            width='40'
             align='right'>
           </el-table-column>
           <el-table-column
             label="Qty"
-            width='80'>
+            width='50'>
             <template slot-scope="scope">
               <quantity-form @click.native.prevent="setProduct(scope.$index, basket)"></quantity-form>
             </template>
           </el-table-column>
           <el-table-column
-            prop="unit"
-            label="Unit">
-          </el-table-column>
-          <el-table-column
-            prop="unitPrice"
-            label="Unit Price (£)">
-          </el-table-column>
-          <el-table-column
             prop="price"
-            label="Price (£)">
+            label="Price (£)"
+            width='70'>
           </el-table-column>
           <el-table-column
-            fixed="right">
+            width='60'>
             <template slot-scope="scope">
               <el-button v-on:click.native.prevent="deleteItem(scope.$index, basket)" icon='el-icon-delete' type='danger' circle size='mini'></el-button>
             </template>
