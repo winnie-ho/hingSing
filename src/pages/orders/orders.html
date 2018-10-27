@@ -25,35 +25,32 @@
           </el-table-column>
           <el-table-column
             prop="client"
-            label="Client">
-          </el-table-column>
-          <el-table-column
-            prop="items.length"
-            label="Size"
+            label="Client"
             sortable>
           </el-table-column>
           <el-table-column
-            prop="totalValue"
-            label="Value (£)"
-            sortable>
-          </el-table-column>
-          <el-table-column
-            prop="deliveryDate"
-            label="Delivery Date"
-            sortable>
-          </el-table-column>
-          <el-table-column
-            prop="status"
-            label="Status"
-            sortable
-            align='center'
-            v-bind:filters="[{ text: 'Complete', value: 'complete' }, { text: 'Open', value: 'open' }]" 
-            v-bind:filter-method="filterStatus" 
-            filter-placement="bottom-end">
-            <template slot-scope="scope">
-              <el-tag :type="scope.row.status === 'complete' ? 'info' : 'success'" disable-transitions>{{scope.row.status}}</el-tag>
-            </template>
-          </el-table-column>
+          prop="status"
+          label="Status"
+          sortable
+          align='center'
+          v-bind:filters="[{ text: 'Complete', value: 'complete' }, { text: 'Open', value: 'open' }]" 
+          v-bind:filter-method="filterStatus" 
+          filter-placement="bottom-end">
+          <template slot-scope="scope">
+            <el-tag 
+              :type="scope.row.status === 'complete' ? 'info' : 'success'" 
+              disable-transitions
+              size='mini'>{{scope.row.status}}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column
+          type='expand'>
+          <template slot-scope="props">
+            <p>Delivery Date: {{ props.row.deliveryDate }}</p>
+            <p>Size: {{ props.row.items.length }}</p>
+            <p>Total Value: £{{ props.row.totalValue }}</p>
+          </template>
+        </el-table-column>
         </el-table>
       </div>
     </el-main>
