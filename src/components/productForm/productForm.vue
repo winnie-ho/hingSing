@@ -19,17 +19,17 @@
     methods: {
       addProduct() {
         this.$store.dispatch('addProduct', Object.assign({}, this.form, {
-          unitPrice: (parseFloat(this.form.unitPrice)).toFixed(2)
+          unitPrice: (parseFloat(this.form.unitPrice))
         }));
         this.productFormVisible = false;
-        setTimeout(this.refreshProductsList, 100);
+        setTimeout(this.refreshProductsList, 200);
         this.successMessage(' successfully added');
       },
       editProductForm(){
         this.form = {
           name: this.product.name,
           unit: this.product.unit,
-          unitPrice: (parseFloat(this.product.unitPrice)).toFixed(2),
+          unitPrice: this.product.unitPrice.toFixed(2),
           image: this.product.image
         }
         this.productFormVisible = true;
@@ -37,7 +37,7 @@
       updateProduct(){
         const updatedProduct = Object.assign({}, this.form, {
           id: this.product.id,
-          unitPrice: (parseFloat(this.form.unitPrice)).toFixed(2)
+          unitPrice: parseFloat((this.form.unitPrice))
         });
         this.$store.dispatch('updateProduct', updatedProduct);
         setTimeout(this.refreshProductsList, 100);

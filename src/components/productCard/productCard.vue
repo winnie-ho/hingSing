@@ -28,10 +28,10 @@
           this.successMessage(this.basket[index].quantity + 'x ' + this.product.name + ' in basket.');
         } else {
           this.$store.dispatch('addToBasket', Object.assign({}, this.product, {
-            price: parseFloat(this.product.unitPrice),
+            price: this.product.unitPrice,
             quantity: 1
           }))
-          this.successMessage(this.product.name + " added to basket." );
+          this.successMessage(this.product.name + " added to basket.");
         }
       },
       getProductIndex(){
