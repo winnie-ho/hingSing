@@ -2,8 +2,12 @@
 <style scoped src='./siteHeader.css'></style>
 
 <script src>
+  import navMenu from "../navMenu/navMenu.vue";
   export default {
     name: 'siteHeader',
+    components: {
+    "nav-menu": navMenu,
+    },
     data () {
       return {
         signOutResult: null

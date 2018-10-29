@@ -16,4 +16,39 @@ a{
 .sign-out{
   position: absolute;
   right: 20px;
+  top: 20px;
+}
+
+.nav-menu{
+  margin-right: 100px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.el-menu.el-menu--horizontal {
+  border-bottom: none;
+}
+
+/* responsive css  */
+@media all and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    margin: auto;
+  }
+  .logo{
+    height: 60px;
+  }
+  .title{
+    font-size: 20px;
+  }
+  .subtitle{
+    font-size:14px;
+  }
+  .nav-menu{
+    margin-right: unset;
+  }
 }

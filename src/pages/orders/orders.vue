@@ -2,7 +2,6 @@
 <style scoped src='./orders.css'></style>
 
 <script>
-import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import orderForm from "../../components/orderForm/orderForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
@@ -11,7 +10,6 @@ import { store } from '../../store/store.js'
 export default {
   name: "home",
   components: {
-    "nav-menu": navMenu,
     "site-header": siteHeader,
     "order-form": orderForm,
     "breadcrumb-bar": breadcrumbBar

@@ -2,7 +2,6 @@
 <style scoped src='./clients.css'></style>
 
 <script>
-import navMenu from "../../components/navMenu/navMenu.vue";
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
 import clientForm from "../../components/clientForm/clientForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
@@ -11,7 +10,6 @@ import { store } from '../../store/store.js'
 export default {
   name: "clients",
   components: {
-    "nav-menu": navMenu,
     "site-header": siteHeader,
     "client-form": clientForm,
     "breadcrumb-bar": breadcrumbBar

@@ -6,6 +6,7 @@
     name: 'navMenu',
     data () {
       return {
+        activeIndex: '1'
       }
     },
     props: {
@@ -15,7 +16,7 @@
     },
     computed: {
       isCollapsed() {
-        return window.innerWidth < 500;
+        return window.innerWidth < 900;
       },
       isAdmin(){
         return this.$store.state.isAdmin;
