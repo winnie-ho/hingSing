@@ -55,6 +55,9 @@ export default {
         message,
         type
       });
+    },
+    emptyBasket(){
+      this.$store.dispatch('emptyBasket');
     }
   },
   computed: {
