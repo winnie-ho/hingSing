@@ -50,6 +50,9 @@ export default {
     numOfItems() {
       if (!this.order.items) return 0;
       return this.order.items.length;
+    },
+    quantityLabel(){
+      return window.innerWidth < 500 ? "Qty" : "Quantity";
     }
   }
 };
