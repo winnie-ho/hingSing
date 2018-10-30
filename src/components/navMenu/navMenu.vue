@@ -20,6 +20,9 @@
       },
       isAdmin(){
         return this.$store.state.isAdmin;
+      },
+      basket(){
+        return this.$store.state.basket;
       }
     }
   }

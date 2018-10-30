@@ -170,7 +170,11 @@ a{
   background-color: #e8e8e8;
 }
 
-
+/* BADGE POSITION */
+.el-badge__content.is-fixed{
+  top: 23px;
+  right: -47px;
+}
 
 
 /* responsive css  */
@@ -178,12 +182,17 @@ a{
   .heading, .date, .data-metric {
     font-size: 12px;
   }
-
+  
   table {
     font-size: 11px;
   }
-
+  
   .el-aside{
     width: 40px !important;
+  }
+  
+  .el-badge__content.is-fixed{
+    top: 23px;
+    right: 14px;
   }
 }
