@@ -46,6 +46,7 @@ export default {
         this.$store.dispatch('addOrder', order);
         this.$store.dispatch('emptyBasket');
         this.message('Order successfully submitted!', 'success');
+        this.$router.push('/');
       }
     },
     message(message, type){
