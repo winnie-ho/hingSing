@@ -119,6 +119,9 @@
       },
       isAdmin(){
         return this.$store.state.isAdmin;
+      },
+      quantityLabel(){
+        return window.innerWidth < 500 ? "Qty" : "Quantity";
       }
     }
   }

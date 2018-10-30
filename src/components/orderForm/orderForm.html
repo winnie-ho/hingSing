@@ -30,43 +30,39 @@
       <el-form-item>
         <el-table :data="form.items" style="width: 100%">
           <el-table-column
-            fixed
-            prop="id"
-            label="Product ID"
-            width="150">
-          </el-table-column>
-          <el-table-column
             prop="name"
-            label="Product"
-            width="200">
+            label="Product">
           </el-table-column>
+
+          <el-table-column
+            type='expand'
+            width='20'>
+            <template slot-scope="props">
+              <p>Product ID: {{ props.row.id }}</p>
+              <p>Unit: {{ props.row.unit }}</p>
+              <p>Unit Price: £{{ props.row.unitPrice }}</p>
+            </template>
+          </el-table-column>
+
           <el-table-column
             prop="quantity"
-            label="Quantity"
-            width="120">
+            :label="quantityLabel">
           </el-table-column>
-          <el-table-column
-            prop="unit"
-            label="Unit"
-            width="120">
-          </el-table-column>
-          <el-table-column
-            prop="unitPrice"
-            label="Unit Price"
-            width="120">
-          </el-table-column>
+
           <el-table-column
             prop="price"
-            label="Price"
-            width="120">
+            label="Price (£)"
+            width='70'>
           </el-table-column>
+
           <el-table-column
             fixed="right"
-            width="120">
+            width='40'>
             <template slot-scope="scope">
               <el-button v-on:click.native.prevent="deleteItem(scope.$index, order.items)" icon='el-icon-delete' type='danger' circle size='mini'></el-button>
             </template>
           </el-table-column>
+          
         </el-table>
         
       </el-form-item>
