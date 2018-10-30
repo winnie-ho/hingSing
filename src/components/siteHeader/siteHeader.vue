@@ -3,6 +3,8 @@
 
 <script src>
   import navMenu from "../navMenu/navMenu.vue";
+  import { store } from '../../store/store.js'
+
   export default {
     name: 'siteHeader',
     components: {
@@ -22,6 +24,7 @@
         .auth()
         .signOut()
         .then((value) => {
+          this.$router.push('/');
           this.$store.dispatch('setClient', {});
           this.$store.dispatch('clearIsAdmin');
           this.signOutResult = { success: true, value };
