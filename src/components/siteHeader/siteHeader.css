@@ -2,6 +2,9 @@
   height: 100px;
   color: black;
   margin: 20px 0px;
+  position:sticky;
+  top: 0;
+  background-color: white;
 }
 
 a{
