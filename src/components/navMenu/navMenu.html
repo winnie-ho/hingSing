@@ -29,7 +29,7 @@
 
     <el-menu-item index="5">
       <router-link to="/basket" exact>
-        <el-badge v-show='basket.length > 0':value='basket.length' class='item'>
+        <el-badge v-show='basket.length > 0':value='basketSize' class='item'>
           <i class="el-icon-goods"></i>
         </el-badge>
         <span v-show='!isCollapsed'>Basket</span>

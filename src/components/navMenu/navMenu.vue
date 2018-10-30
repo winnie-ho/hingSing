@@ -23,6 +23,9 @@
       },
       basket(){
         return this.$store.state.basket;
+      },
+      basketSize(){
+        return this.basket.reduce((size, item) => size + (item.quantity), 0);
       }
     }
   }
