@@ -3,6 +3,7 @@
 
 <script>
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import navMenu from "../../components/navMenu/navMenu.vue";
 import loginForm from "../../components/loginForm/loginForm.vue";
 import registerForm from "../../components/registerForm/registerForm.vue";
 import profileForm from "../../components/profileForm/profileForm.vue";
@@ -12,6 +13,7 @@ export default {
   name: "home",
   components: {
     "site-header": siteHeader,
+    "nav-menu": navMenu,
     "login-form": loginForm,
     "register-form": registerForm,
     "profile-form": profileForm

@@ -3,6 +3,7 @@
 
 <script>
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import navMenu from "../../components/navMenu/navMenu.vue";
 import googleMap from '../../components/googleMap/googleMap.vue'
 import clientForm from "../../components/clientForm/clientForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
@@ -12,6 +13,7 @@ export default {
   name: "clientView",
   components: {
     "site-header": siteHeader,
+    "nav-menu": navMenu,
     "google-map": googleMap,
     "client-form": clientForm,
     "breadcrumb-bar": breadcrumbBar

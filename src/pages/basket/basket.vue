@@ -3,6 +3,7 @@
 
 <script>
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import navMenu from "../../components/navMenu/navMenu.vue";
 import quantityForm from "../../components/quantityForm/quantityForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
@@ -11,6 +12,7 @@ export default {
   name: "basket",
   components: {
     "site-header": siteHeader,
+    "nav-menu": navMenu,
     "quantity-form": quantityForm,
     "breadcrumb-bar": breadcrumbBar
   },

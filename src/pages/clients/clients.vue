@@ -3,6 +3,7 @@
 
 <script>
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import navMenu from "../../components/navMenu/navMenu.vue";
 import clientForm from "../../components/clientForm/clientForm.vue";
 import breadcrumbBar from "../../components/breadcrumbBar/breadcrumbBar.vue";
 import { store } from '../../store/store.js'
@@ -11,6 +12,7 @@ export default {
   name: "clients",
   components: {
     "site-header": siteHeader,
+    "nav-menu": navMenu,
     "client-form": clientForm,
     "breadcrumb-bar": breadcrumbBar
   },

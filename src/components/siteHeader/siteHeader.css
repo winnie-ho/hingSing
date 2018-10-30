@@ -1,7 +1,6 @@
 #siteHeader{
-  height: 100px;
   color: black;
-  margin: 20px 0px;
+  margin-top: 15px;
   position:sticky;
   top: 0;
   background-color: white;
@@ -18,8 +17,8 @@ a{
 
 .sign-out{
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 15px;
+  top: 15px;
 }
 
 .nav-menu{
@@ -32,9 +31,15 @@ a{
   justify-content: space-between
 }
 
-.el-menu.el-menu--horizontal {
-  border-bottom: none;
+.shrink .logo{
+  height: 40px;
+  padding: 10px;
 }
+
+.shrink .title, .shrink .subtitle{
+  display: none;
+}
+
 
 /* responsive css  */
 @media all and (max-width: 800px) {

@@ -1,5 +1,6 @@
 <div id='basket' class='page'>
   <site-header></site-header>
+  <nav-menu></nav-menu>
   <el-container>
     <el-main>
       <breadcrumb-bar v-bind:breadcrumbContent='breadcrumbContent'></breadcrumb-bar>
@@ -16,7 +17,7 @@
       <el-button class='clear-basket' v-on:click='emptyBasket' type='text' icon='el-icon-delete' size='mini'>Empty basket</el-button>
 
       <div class='basket-list'>
-        <el-table :data="basket" style="width: 100%" height='600px'>
+        <el-table :data="basket" style="width: 100%" height='550px'>
           <el-table-column
             label='Product'
             prop="name">

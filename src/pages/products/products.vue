@@ -3,6 +3,7 @@
 
 <script>
 import siteHeader from "../../components/siteHeader/siteHeader.vue";
+import navMenu from "../../components/navMenu/navMenu.vue";
 import productCard from "../../components/productCard/productCard.vue";
 import productForm from "../../components/productForm/productForm.vue";
 import { store } from '../../store/store.js'
@@ -11,8 +12,9 @@ export default {
   name: "products",
   components: {
     "site-header": siteHeader,
+    "nav-menu": navMenu,
     "product-card": productCard,
-    "product-form": productForm,
+    "product-form": productForm
   },
   data() {
     return {

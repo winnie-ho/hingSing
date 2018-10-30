@@ -1,4 +1,15 @@
 .el-menu.el-menu--horizontal{
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+}
+
+.el-menu-item{
+  padding: 0 8px;
+}
+
+.el-menu.el-menu--horizontal {
+  border-bottom: none;
 }

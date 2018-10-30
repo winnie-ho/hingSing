@@ -2,7 +2,7 @@
   <div class='container'>
       
     <router-link to="/" exact>
-      <div class='row'>
+      <div class='row' :class='scrollClass' >
         <img class='logo' src="../../../static/icon-koi.png"/>
         <div>
           <h1 class='title'>Hing Sing</h1>
@@ -11,9 +11,6 @@
       </div>
     </router-link>
 
-
-    <nav-menu class='nav-menu'></nav-menu>
-
   </div>
-  <el-button v-show='user' type='text' class='sign-out' v-on:click="signOutUser">Sign out</el-button>
+  <el-button v-show='user' type='text' class='sign-out' v-on:click="signOutUser" size='small'>Sign out</el-button>
 </div>

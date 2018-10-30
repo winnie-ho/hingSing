@@ -2,21 +2,24 @@
 <style scoped src='./siteHeader.css'></style>
 
 <script src>
-  import navMenu from "../navMenu/navMenu.vue";
   import { store } from '../../store/store.js'
 
   export default {
     name: 'siteHeader',
-    components: {
-    "nav-menu": navMenu,
-    },
     data () {
       return {
-        signOutResult: null
+        signOutResult: null,
+        scrollClass: null,
       }
     },
     props: {
 
+    },
+    created(){
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
       signOutUser(){
@@ -33,6 +36,13 @@
         .catch((error) => {
           this.signOutResult = { success: false, error };
         });
+      },
+      handleScroll(e){
+        if (window.scrollY > 40) {
+          this.scrollClass = 'shrink';
+        } else {
+          this.scrollClass = ''
+        }
       }
     },
     computed: {

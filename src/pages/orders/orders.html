@@ -1,5 +1,6 @@
 <div id='orders' class='page'>
   <site-header></site-header>
+  <nav-menu></nav-menu>
   <el-container>
     <el-main>
       <breadcrumb-bar v-bind:breadcrumbContent='breadcrumbContent'></breadcrumb-bar>
@@ -13,7 +14,7 @@
 
 
       <div class='orders-list'>
-        <el-table :data="orders" style="width: 100%" :row-class-name="orderStatusClass" @current-change="enterOrderView" :default-sort = "{prop: 'date', order: 'descending'}">
+        <el-table :data="orders" style="width: 100%" height='500px' :row-class-name="orderStatusClass" @current-change="enterOrderView" :default-sort = "{prop: 'date', order: 'descending'}">
           <el-table-column
             prop="date"
             label="Date"
