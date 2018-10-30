@@ -69,6 +69,9 @@ export default {
       }, 0);
       return totalValue.toFixed(2);
     },
+    basketSize(){
+      return this.basket.reduce((total, item) => total + item.quantity, 0);
+    },
     user(){
       if (!this.$store.state.user) return;
       return this.$store.state.user.user;

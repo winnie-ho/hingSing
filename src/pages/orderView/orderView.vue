@@ -47,7 +47,7 @@ export default {
     },
     numOfItems() {
       if (!this.order.items) return 0;
-      return this.order.items.length;
+      return this.order.items.reduce((total, item) => total + (item.quantity), 0);
     },
     quantityLabel(){
       return window.innerWidth < 500 ? "Qty" : "Quantity";

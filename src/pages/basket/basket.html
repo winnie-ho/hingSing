@@ -6,7 +6,7 @@
       <div class='row sb'>
         <div>
           <h1>Basket</h1>
-          <h3>{{ basket.length }} items</h3>
+          <h3>{{ basketSize }} items</h3>
           <h2>£{{ basketValue }}</h2>
         </div>
         <el-button v-on:click='submitOrder' type='primary' v-show='!isCollapsed'>Submit order</el-button>
