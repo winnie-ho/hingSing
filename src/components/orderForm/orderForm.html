@@ -1,7 +1,7 @@
 <div id='orderForm'>
     <el-button type='primary' icon='el-icon-plus' v-on:click='orderFormVisible=true' v-show='showAddBtn && !isCollapsed'>New Order</el-button>
     <el-button type='primary' icon='el-icon-plus' v-on:click='orderFormVisible=true' v-show='showAddBtn && isCollapsed' :circle='isCollapsed' size='small'></el-button>
-    <el-button-group v-show='!showAddBtn'>
+    <el-button-group v-show='!showAddBtn && isAdmin'>
       <el-button type="primary" icon="el-icon-printer" v-on:click='printOrderForm' size='small'></el-button>
       <el-button type="primary" icon="el-icon-edit" v-on:click='editOrderForm' size='small'></el-button>
       <el-button type="primary" icon="el-icon-delete" v-on:click='deleteOrder' size='small'></el-button>
