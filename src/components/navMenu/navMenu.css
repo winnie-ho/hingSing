@@ -1,9 +1,12 @@
 .el-menu.el-menu--horizontal{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 100px;
+  margin-bottom: 30px; 
+  margin-top: -80px; 
+  background-color: transparent;
   position: sticky;
   top: 0;
-  background-color: transparent;
 }
 
 .el-menu-item{
@@ -12,4 +15,23 @@
 
 .el-menu.el-menu--horizontal {
   border-bottom: none;
+}
+
+.nav-menu{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+
+/* responsive css  */
+@media all and (max-width: 800px) {
+  .el-menu.el-menu--horizontal{
+    justify-content: center;
+    background-color: transparent;
+    margin-right: 0px;
+    margin-top: 0px;
+    position: sticky;
+    top: 0;
+  }
 }

@@ -36,9 +36,7 @@ a{
   padding: 10px;
 }
 
-.shrink .title, .shrink .subtitle{
-  display: none;
-}
+
 
 
 /* responsive css  */
@@ -58,5 +56,9 @@ a{
   }
   .nav-menu{
     margin-right: unset;
+  }
+
+  .shrink .title, .shrink .subtitle{
+    display: none;
   }
 }
