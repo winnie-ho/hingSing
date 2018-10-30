@@ -1,0 +1,4 @@
+.el-menu.el-menu--horizontal{
+  display: flex;
+  justify-content: center;
+}
