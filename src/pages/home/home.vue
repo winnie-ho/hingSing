@@ -21,6 +21,7 @@ export default {
   mounted(){
     this.isProfileSetupCheck();
     this.$store.dispatch('fetchOrders');
+    this.setUserClient();
   },
   data() {
     return {
@@ -53,6 +54,10 @@ export default {
     },
     editProfileForm(){
       this.displayProfileForm = true;
+    },
+    setUserClient(){
+      const userClient = this.clients.find(client => client.email === this.user.user.email);
+      this.$store.dispatch('setClient', userClient);
     }
   },
   computed: {
@@ -63,6 +68,9 @@ export default {
     client(){
       if (!this.$store.state.client);
       return this.$store.state.client;
+    },
+    clients(){
+      return this.$store.state.clients;
     },
     orders() {
       return this.$store.state.orders;
